@@ -6,19 +6,27 @@
 
     <groupId>MonkeyCore</groupId>
     <artifactId>MonkeyCore</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- Git -->
+    <scm>
+        <connection>scm:git:https://github.com/sddang/MonkeyCore.git</connection>
+        <developerConnection>scm:git:https://github.com/sddang/MonkeyCore.git</developerConnection>
+        <url>https://github.com/sddang/MonkeyCore.git</url>
+    </scm>
+
+    <!-- Release and Snapshot server -->
     <distributionManagement>
         <repository>
             <id>Monkey-Repository</id>
-            <name>Monkey</name>
-            <url>file:///C:/mvn/repo</url>
+            <name>MonkeyRelease</name>
+            <url>file://${project.build.directory}/MonkeyRelease</url>
         </repository>
         <snapshotRepository>
             <id>Monkey-Repository</id>
-            <name>Monkey Go</name>
-            <url>file:///C:/mvn/Snapshot</url>
+            <name>MonkeySnapshot</name>
+            <url>file://${project.build.directory}/MonkeySnapshot</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -51,6 +59,7 @@
         <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
     </properties>
 
     <dependencies>
@@ -242,6 +251,15 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${maven-deploy-plugin.version}</version>
+<!--                <configuration>-->
+<!--                    <skip>true</skip>-->
+<!--                </configuration>-->
             </plugin>
 
         </plugins>

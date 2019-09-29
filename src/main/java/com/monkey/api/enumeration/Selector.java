@@ -13,10 +13,11 @@
 // 
 
 package com.monkey.api.enumeration;
+
 /**
  * Enumerate all the supported way to find elements
  */
 public enum Selector {
 
-	id, name, partialLinkText, xpath, cssSelector, className, tagName
+    id, name, partialLinkText, xpath, cssSelector, className, tagName
 }

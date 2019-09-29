@@ -11,43 +11,44 @@ import com.monkey.services.data.DataMapper;
 
 public class SelectTask extends AbstractTask {
 
-	private String description ; 
-	/**
-	 * Execute the select event using the Selenium implementation 
-	 */
-	@Override
-	public void execute() {
+    private String description;
 
-		final WebElement webElement = this.getElement().getWebElement();
+    /**
+     * Execute the select event using the Selenium implementation
+     */
+    @Override
+    public void execute() {
 
-		final String value = DataMapper.getSessionMapper().mapData(this.getElement().getInputValue());
-        this.description = "Select the option << "+value+ " >> for the select << " + this.getElement()+" >>";
-		final Select select = new Select(webElement);
-		try {
-			select.selectByVisibleText(value);
-		} catch (final Exception e) {
-			try {
-				select.selectByValue(value);
-			} catch (final Exception ee) {
-				//try {
-					select.selectByIndex(Integer.valueOf(value));
-				//} catch (Exception eee) {
-					//Assertion.fail(eee.getMessage());
-				//}
-			}
-		}
-		Wait.implicitWait(1);
+        final WebElement webElement = this.getElement().getWebElement();
 
-	}
+        final String value = DataMapper.getSessionMapper().mapData(this.getElement().getInputValue());
+        this.description = "Select the option << " + value + " >> for the select << " + this.getElement() + " >>";
+        final Select select = new Select(webElement);
+        try {
+            select.selectByVisibleText(value);
+        } catch (final Exception e) {
+            try {
+                select.selectByValue(value);
+            } catch (final Exception ee) {
+                //try {
+                select.selectByIndex(Integer.valueOf(value));
+                //} catch (Exception eee) {
+                //Assertion.fail(eee.getMessage());
+                //}
+            }
+        }
+        Wait.implicitWait(1);
 
-	@Override
-	public String getDescription() {
-		return this.description;
-	}
-	
-	@Override
-	public String getName() {
-		return "SelectOption";
-	}
+    }
+
+    @Override
+    public String getDescription() {
+        return this.description;
+    }
+
+    @Override
+    public String getName() {
+        return "SelectOption";
+    }
 
 }

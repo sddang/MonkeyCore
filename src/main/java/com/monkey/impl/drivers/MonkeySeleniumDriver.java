@@ -14,53 +14,53 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 public class MonkeySeleniumDriver extends RemoteWebDriver implements MonkeyDriver {
 
-	private DataMapper dataMapper;
-	private String testFileName;
-	private String language;
-	private final List<DocumentObject> taskDocumentationList = new ArrayList<DocumentObject>();
-	private ExtentTest testReport;
+    private DataMapper dataMapper;
+    private String testFileName;
+    private String language;
+    private final List<DocumentObject> taskDocumentationList = new ArrayList<DocumentObject>();
+    private ExtentTest testReport;
 
-	public MonkeySeleniumDriver(final URL remoteAddress, final Capabilities desiredCapabilities){
-		super(remoteAddress, desiredCapabilities);
-	}
+    public MonkeySeleniumDriver(final URL remoteAddress, final Capabilities desiredCapabilities) {
+        super(remoteAddress, desiredCapabilities);
+    }
 
-	public DataMapper getDataMapper() {
-		return this.dataMapper;
-	}
+    public DataMapper getDataMapper() {
+        return this.dataMapper;
+    }
 
-	public void setDataMapper(final DataMapper dataMapper) {
-		this.dataMapper = dataMapper;
-	}
+    public void setDataMapper(final DataMapper dataMapper) {
+        this.dataMapper = dataMapper;
+    }
 
-	public String getTestFileName() {
-		return this.testFileName;
-	}
+    public String getTestFileName() {
+        return this.testFileName;
+    }
 
-	public void setTestFileName(final String testFileName) {
-		this.testFileName = testFileName;
-	}
+    public void setTestFileName(final String testFileName) {
+        this.testFileName = testFileName;
+    }
 
-	public void addTaskDocument(final DocumentObject taskDocument) {
-		this.taskDocumentationList.add(taskDocument);
-	}
+    public void addTaskDocument(final DocumentObject taskDocument) {
+        this.taskDocumentationList.add(taskDocument);
+    }
 
-	public List<DocumentObject> getTaskDocumentationList() {
-		return this.taskDocumentationList;
-	}
+    public List<DocumentObject> getTaskDocumentationList() {
+        return this.taskDocumentationList;
+    }
 
-	public String getLanguage() {
-		return this.language;
-	}
+    public String getLanguage() {
+        return this.language;
+    }
 
-	public void setLanguage(final String language) {
-		this.language = language;
-	}
+    public void setLanguage(final String language) {
+        this.language = language;
+    }
 
-	public ExtentTest getTestReport() {
-		return this.testReport;
-	}
+    public ExtentTest getTestReport() {
+        return this.testReport;
+    }
 
-	public void setTestReport(final ExtentTest test) {
-		testReport = test;
-	}
+    public void setTestReport(final ExtentTest test) {
+        testReport = test;
+    }
 }

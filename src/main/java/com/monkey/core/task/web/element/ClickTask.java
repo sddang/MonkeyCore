@@ -16,74 +16,75 @@ import com.monkey.core.task.AbstractTask;
 
 public class ClickTask extends AbstractTask {
 
-	public boolean allowDisabledElement;
+    public boolean allowDisabledElement;
 
-	@Override
-	public boolean allowEnabledElement() {
-		return this.allowDisabledElement;
-	}
+    @Override
+    public boolean allowEnabledElement() {
+        return this.allowDisabledElement;
+    }
 
-	/**
-	 * Fire the event of clicking element with the selenium implementation. The
-	 * click of monkey is more improved and works for more cases than the native
-	 * click of Selenium
-	 */
-	@Override
-	public void execute() {
-		final WebElement webElement = this.getElement().getWebElement();
-		//if (ExecutionManager.getProtocol().equals(Protocol.appium)) {
-		//	webElement.click();
-		//	Wait.implicitWait(1);
-		//} else {
-			int i = 0;
-			while (i < 5) {
-				try {
-					webElement.click();
-					Wait.implicitWait(1);
-					break;
-				} catch (final Exception e) {
-					i = i + 1;
-					if (i == 1 || i == 2) {
-						KeyBoard.pageDown();
-					} else {
-						KeyBoard.pageUp();
-					}
-				}
-			}
-			if(!(MonkeyExecutionContext.isIOS()) && !(MonkeyExecutionContext.isAndroid()))
-                this.waitForPageToLoad();
-		//}
-	}
+    /**
+     * Fire the event of clicking element with the selenium implementation. The
+     * click of monkey is more improved and works for more cases than the native
+     * click of Selenium
+     */
+    @Override
+    public void execute() {
+        final WebElement webElement = this.getElement().getWebElement();
+        //if (ExecutionManager.getProtocol().equals(Protocol.appium)) {
+        //	webElement.click();
+        //	Wait.implicitWait(1);
+        //} else {
+        int i = 0;
+        while (i < 5) {
+            try {
+                webElement.click();
+                Wait.implicitWait(1);
+                break;
+            } catch (final Exception e) {
+                i = i + 1;
+                if (i == 1 || i == 2) {
+                    KeyBoard.pageDown();
+                } else {
+                    KeyBoard.pageUp();
+                }
+            }
+        }
+        if (!(MonkeyExecutionContext.isIOS()) && !(MonkeyExecutionContext.isAndroid()))
+            this.waitForPageToLoad();
+        //}
+    }
 
-	/**
-	 * Wait untill the page is loaded
-	 */
-	public void waitForPageToLoad() {
-		try {
-			final org.openqa.selenium.support.ui.Wait<WebDriver> wait = new WebDriverWait(ExecutionManager.getMonkeyDriver(),
-					ExecutionManager.getConfiguration().getTimeOut());
-			final ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
-				@Override
-				public Boolean apply(final WebDriver driver) {
-					Wait.implicitWait(1);
-					final boolean isComplete = ((JavascriptExecutor) driver).executeScript("return document.readyState")
-							.equals("complete");
-					return isComplete;
-				}
-			};
-			wait.until(expectation);
-			
-		} catch (final Throwable error) {
-		}
-	}
+    /**
+     * Wait untill the page is loaded
+     */
+    public void waitForPageToLoad() {
+        try {
+            final org.openqa.selenium.support.ui.Wait<WebDriver> wait = new WebDriverWait(ExecutionManager.getMonkeyDriver(),
+                    ExecutionManager.getConfiguration().getTimeOut());
+            final ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+                @Override
+                public Boolean apply(final WebDriver driver) {
+                    Wait.implicitWait(1);
+                    final boolean isComplete = ((JavascriptExecutor) driver).executeScript("return document.readyState")
+                            .equals("complete");
+                    return isComplete;
+                }
+            };
+            wait.until(expectation);
 
-	@Override
-	public String getDescription() {
-		return "Click on element [ " + this.getElement() + "]";
-	}
-	@Override
-	public String getName() {
-		return "ClickElement";
-	}
+        } catch (final Throwable error) {
+        }
+    }
+
+    @Override
+    public String getDescription() {
+        return "Click on element [ " + this.getElement() + "]";
+    }
+
+    @Override
+    public String getName() {
+        return "ClickElement";
+    }
 
 }

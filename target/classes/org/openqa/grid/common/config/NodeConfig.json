@@ -1,0 +1,23 @@
+{
+  "capabilities":
+      [
+        {
+          "browserName": "chrome",
+          "maxInstances": 20,
+          "seleniumProtocol": "WebDriver"
+        }
+      ],
+  
+    "nodePolling":5000,
+    "maxConcurrent": 5,
+    "cleanUpCycle":2000,
+    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "maxSession": 20,
+    "port": 5556,
+    "remoteHost" : "http://localhost:5556",
+    "hub": "http://localhost:4444/grid/register",
+    "register": true,
+    "registerCycle": 10000,
+    "hubHost": "localhost",
+    "hubPort": 4444
+}

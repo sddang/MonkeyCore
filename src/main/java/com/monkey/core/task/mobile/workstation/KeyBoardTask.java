@@ -17,58 +17,58 @@ import io.appium.java_client.remote.HideKeyboardStrategy;
 
 public class KeyBoardTask extends AbstractTask {
 
-	private String name;
-	private String description;
+    private String name;
+    private String description;
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public void execute() {
-		switch (this.name) {
-		case KeyBoard.HIDE_KEYBOARD:
-            this.description = "Hide keyboard";
-			try {
-				if (this.getElement() != null) {
-                    this.getElement().click();
-				} else {
-					if (MonkeyExecutionContext.isAndroid()) {
-						((AndroidDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).hideKeyboard();
-					}
+    @SuppressWarnings("unchecked")
+    @Override
+    public void execute() {
+        switch (this.name) {
+            case KeyBoard.HIDE_KEYBOARD:
+                this.description = "Hide keyboard";
+                try {
+                    if (this.getElement() != null) {
+                        this.getElement().click();
+                    } else {
+                        if (MonkeyExecutionContext.isAndroid()) {
+                            ((AndroidDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).hideKeyboard();
+                        }
 
-					if (MonkeyExecutionContext.isIOS()) {
-						((IOSDriver<WebElement>) (ExecutionManager.getMonkeyDriver()))
-								.hideKeyboard(HideKeyboardStrategy.TAP_OUTSIDE, "Done");
-					}
-				}
-			} catch (final Exception e) {
-				MonkeyLogger.log(getClass().getName(), "Keyboard does not appear...", LogLevel.INFO);
-			}
-			break;
-		case KeyBoard.TAP_ENTER:
-            this.description = "Tap enter on keyboard";
-			if (MonkeyExecutionContext.isAndroid())
-				((AndroidDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).pressKeyCode(AndroidKeyCode.ENTER);
+                        if (MonkeyExecutionContext.isIOS()) {
+                            ((IOSDriver<WebElement>) (ExecutionManager.getMonkeyDriver()))
+                                    .hideKeyboard(HideKeyboardStrategy.TAP_OUTSIDE, "Done");
+                        }
+                    }
+                } catch (final Exception e) {
+                    MonkeyLogger.log(getClass().getName(), "Keyboard does not appear...", LogLevel.INFO);
+                }
+                break;
+            case KeyBoard.TAP_ENTER:
+                this.description = "Tap enter on keyboard";
+                if (MonkeyExecutionContext.isAndroid())
+                    ((AndroidDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).pressKeyCode(AndroidKeyCode.ENTER);
 
-			if (MonkeyExecutionContext.isIOS()) {
-				((IOSDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).getKeyboard().sendKeys(Keys.ENTER);
-			}
-			break;
+                if (MonkeyExecutionContext.isIOS()) {
+                    ((IOSDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).getKeyboard().sendKeys(Keys.ENTER);
+                }
+                break;
 
-		}
+        }
 
-	}
+    }
 
-	@Override
-	public String getDescription() {
-		return this.description;
-	}
+    @Override
+    public String getDescription() {
+        return this.description;
+    }
 
-	@Override
-	public String getName() {
-		return this.name;
-	}
+    @Override
+    public String getName() {
+        return this.name;
+    }
 
-	public void setName(final String name) {
-		this.name = name;
-	}
+    public void setName(final String name) {
+        this.name = name;
+    }
 
 }

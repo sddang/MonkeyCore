@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.monkey.automation</groupId>
+  <artifactId>monkey.core</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20190929090724</lastUpdated>
+  </versioning>
+</metadata>

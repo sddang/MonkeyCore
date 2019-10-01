@@ -1,6 +1,7 @@
 
 package com.monkey.core.page;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,31 +44,31 @@ public class LocalisationHelper {
         try {
             switch (selector) {
                 case name:
-                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfElementLocated(By.name(key)));
                     break;
                 case id:
-                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfElementLocated(By.id(key)));
                     break;
                 case className:
-                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfElementLocated(By.className(key)));
                     break;
                 case partialLinkText:
-                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfElementLocated(By.linkText(key)));
                     break;
                 case xpath:
-                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfElementLocated(By.xpath(key)));
                     break;
                 case cssSelector:
-                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(key)));
                     break;
                 case tagName:
-                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfElementLocated(By.tagName(key)));
                     break;
             }
@@ -116,31 +117,31 @@ public class LocalisationHelper {
         try {
             switch (selector) {
                 case name:
-                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.name(key)));
                     break;
                 case id:
-                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id(key)));
                     break;
                 case className:
-                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className(key)));
                     break;
                 case partialLinkText:
-                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.linkText(key)));
                     break;
                 case xpath:
-                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(key)));
                     break;
                 case cssSelector:
-                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(key)));
                     break;
                 case tagName:
-                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), timeOut))
+                    elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
                             .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.tagName(key)));
                     break;
             }

@@ -25,17 +25,17 @@ public class MonkeyAppiumConfig extends MonkeyConfig {
     private boolean autoLaunch;
     private String language;
     private String locale;
-    private String udid;
 
     // ios
     private String xcodeOrgId;
     private String xcodeSigningId;
     private String useNewWDA;
     private String startIWDP;
+    private String udid;
 
     // LANDSCAPE / PORTRAIT
     private String orientation;
-    private boolean autoWebview;
+    private boolean autoWebView;
     private boolean noReset;
     private boolean fullReset;
     private String bundleId;
@@ -142,12 +142,12 @@ public class MonkeyAppiumConfig extends MonkeyConfig {
         this.orientation = orientation;
     }
 
-    public boolean isAutoWebview() {
-        return this.autoWebview;
+    public boolean isAutoWebView() {
+        return this.autoWebView;
     }
 
-    public void setAutoWebview(final boolean autoWebview) {
-        this.autoWebview = autoWebview;
+    public void setAutoWebView(final boolean autoWebView) {
+        this.autoWebView = autoWebView;
     }
 
     public boolean isNoReset() {
@@ -216,7 +216,7 @@ public class MonkeyAppiumConfig extends MonkeyConfig {
         map.put("language", this.getLanguage());
         map.put("locale", this.getLocale());
         map.put("orientation", this.getOrientation());
-        map.put("autoWebview", this.isAutoWebview());
+        map.put("autoWebview", this.isAutoWebView());
         map.put("noReset", this.isNoReset());
         map.put("fullReset", this.isFullReset());
 

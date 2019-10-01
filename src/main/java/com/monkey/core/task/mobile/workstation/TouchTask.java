@@ -1,7 +1,11 @@
 package com.monkey.core.task.mobile.workstation;
 
+import java.time.Duration;
 import java.util.List;
 
+import io.appium.java_client.touch.TapOptions;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
@@ -31,7 +35,8 @@ public class TouchTask extends AbstractTask {
     private boolean elementFound;
     private int x;
     private int y;
-    private int finger;
+    private int tapCount;
+    private AppiumDriver<WebElement> driver;
 
     public void setX(final int x) {
         this.x = x;
@@ -41,8 +46,8 @@ public class TouchTask extends AbstractTask {
         this.y = y;
     }
 
-    public void setFinger(final int finger) {
-        this.finger = finger;
+    public void setTapCount(final int tapCount) {
+        this.tapCount = tapCount;
     }
 
     @Override
@@ -54,7 +59,7 @@ public class TouchTask extends AbstractTask {
     public void execute() {
         WebElement element;
         List<WebElement> elementsList;
-
+        driver = ((AppiumDriver<WebElement>) ExecutionManager.getMonkeyDriver());
         switch (this.name) {
 
             case TouchAction.SWIPE:
@@ -153,24 +158,21 @@ public class TouchTask extends AbstractTask {
                 break;
 
             case TouchAction.TAP:
-                this.tap(this.finger, this.x, this.y, this.duration);
+                this.tap(this.tapCount, this.x, this.y);
                 break;
 
         }
 
     }
 
-    private void tap(final int f, final int condinateX, final int condinatorY, final int duration) {
-        final AppiumDriver<WebElement> driver = ((AppiumDriver<WebElement>) ExecutionManager.getMonkeyDriver());
-        driver.tap(this.finger, condinateX, condinatorY, duration);
+    private void tap(final int tapCount, final int condinateX, final int condinatorY) {
+        new io.appium.java_client.TouchAction(driver)
+                .tap(TapOptions
+                        .tapOptions()
+                        .withTapsCount(tapCount)
+                        .withPosition(PointOption.point(condinateX,condinatorY)))
+                .perform();
     }
-
-    /*
-     * @SuppressWarnings("unchecked") private void iOSscroll(String text) {
-     * ((IOSDriver<WebElement>)
-     * (ExecutionManager.getmonkeyDriver())).scrollTo(text); }
-     */
-
 
     private void scroll(final double screenHeightStartPercent, final double screenHeightEndPercent, final int duration) {
         final String currentContext = Driver.getContext();
@@ -190,7 +192,7 @@ public class TouchTask extends AbstractTask {
         final Double screenHeightEnd = dimensions.getHeight() * screenHeightEndPercent;
         final int scrollEnd = screenHeightEnd.intValue();
 
-        ((AppiumDriver<WebElement>) ExecutionManager.getMonkeyDriver()).swipe(0, scrollStart, 0, scrollEnd, duration);
+        swipe(0, scrollStart, 0, scrollEnd, duration);
         Driver.switchContext(currentContext);
     }
 
@@ -198,8 +200,8 @@ public class TouchTask extends AbstractTask {
         this.swipe(screenWidthStartPercent, screenWidthEndPercent, 0.5, duration);
     }
 
-    @SuppressWarnings("unchecked")
-    private void swipe(final double screenWidthStartPercent, final double screenWidthEndPercent, final double screenHeightPercent,
+
+    private void swipe(final double screenWidthStartPercent, final double screenWidthEndPercent, double screenHeightPercent,
                        final int duration) {
         final String currentContext = Driver.getContext();
         Driver.switchContextToNative();
@@ -221,12 +223,11 @@ public class TouchTask extends AbstractTask {
         final Double screenHeightMiddle = dimensions.getHeight() * screenHeightPercent;
         final int height = screenHeightMiddle.intValue();
 
-        ((AppiumDriver<WebElement>) ExecutionManager.getMonkeyDriver()).swipe(swipeStart, height, swipeEnd, height,
-                duration);
+        swipe(swipeStart, height, swipeEnd, height, duration);
         Driver.switchContext(currentContext);
     }
 
-    @SuppressWarnings("unchecked")
+
     private void swipe(final double screenWidthStartPercent, final double screenHeightStartPercent, final double screenWidthEndPercent,
                        final double screenHeightEndPercent, final int duration) {
         final String currentContext = Driver.getContext();
@@ -258,8 +259,7 @@ public class TouchTask extends AbstractTask {
         final Double screenHeightEnd = dimensions.getHeight() * screenHeightEndPercent;
         final int swipeHeightEnd = screenHeightEnd.intValue();
 
-        ((AppiumDriver<WebElement>) ExecutionManager.getMonkeyDriver()).swipe(swipeWidthStart, swipeHeightStart,
-                swipeWidthEnd, swipeHeightEnd, duration);
+        swipe(swipeWidthStart, swipeHeightStart, swipeWidthEnd, swipeHeightEnd, duration);
         Driver.switchContext(currentContext);
     }
 
@@ -280,10 +280,26 @@ public class TouchTask extends AbstractTask {
             case TouchAction.SCROLL:
                 return "perform a scroll action";
             case TouchAction.TAP:
-                return "tap on the specific cordidate x: " + this.x + " and y: " + this.y + "";
+                return "tap on the specific coordinate x: " + this.x + " and y: " + this.y + "";
             default:
                 return "No description for this task : " + this.name;
         }
+    }
+
+    /**
+     *
+     * @param startX
+     * @param startY
+     * @param endX
+     * @param endY
+     */
+    private void swipe(int startX, int startY, int endX, int endY, int duration) {
+        new io.appium.java_client.TouchAction(driver)
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(duration)))
+                .press(PointOption.point(startX, startY))
+                .moveTo(PointOption.point(endX, endY))
+                .release()
+                .perform();
     }
 
     @Override

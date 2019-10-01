@@ -13,6 +13,8 @@ import com.monkey.api.web.workstation.KeyBoard;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
 
+import java.time.Duration;
+
 
 public class ClickTask extends AbstractTask {
 
@@ -60,8 +62,7 @@ public class ClickTask extends AbstractTask {
      */
     public void waitForPageToLoad() {
         try {
-            final org.openqa.selenium.support.ui.Wait<WebDriver> wait = new WebDriverWait(ExecutionManager.getMonkeyDriver(),
-                    ExecutionManager.getConfiguration().getTimeOut());
+            final org.openqa.selenium.support.ui.Wait<WebDriver> wait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(ExecutionManager.getConfiguration().getTimeOut()));
             final ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
                 @Override
                 public Boolean apply(final WebDriver driver) {

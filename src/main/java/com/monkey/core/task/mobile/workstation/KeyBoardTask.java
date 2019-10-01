@@ -1,5 +1,7 @@
 package com.monkey.core.task.mobile.workstation;
 
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
@@ -9,9 +11,7 @@ import com.monkey.api.enumeration.LogLevel;
 import com.monkey.api.mobile.workstation.KeyBoard;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
-
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.HideKeyboardStrategy;
 
@@ -46,7 +46,7 @@ public class KeyBoardTask extends AbstractTask {
             case KeyBoard.TAP_ENTER:
                 this.description = "Tap enter on keyboard";
                 if (MonkeyExecutionContext.isAndroid())
-                    ((AndroidDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).pressKeyCode(AndroidKeyCode.ENTER);
+                    ((AndroidDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).pressKey(new KeyEvent(AndroidKey.ENTER));
 
                 if (MonkeyExecutionContext.isIOS()) {
                     ((IOSDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).getKeyboard().sendKeys(Keys.ENTER);

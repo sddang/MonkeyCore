@@ -24,11 +24,11 @@ public class TouchAction {
         UP, DOWN
     }
 
-    public static void tap(final int finger, final int x, final int y, final int duration) {
+    public static void tap(final int tapCount, final int x, final int y, final int duration) {
         final TouchTask touchTask = new TouchTask();
         touchTask.setName(TouchAction.TAP);
         touchTask.setDuration(100);
-        touchTask.setFinger(finger);
+        touchTask.setTapCount(tapCount);
         touchTask.setX(x);
         touchTask.setY(y);
         touchTask.runTask();

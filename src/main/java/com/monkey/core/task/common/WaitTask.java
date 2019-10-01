@@ -2,6 +2,7 @@
 
 package com.monkey.core.task.common;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -59,7 +60,7 @@ public class WaitTask extends AbstractTask {
                     // limit the timeOut to the configured timeout
                     this.timeOut = configuredTimeOut;
                 }
-                final WebDriverWait wwait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), this.timeOut);
+                final WebDriverWait wwait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(this.timeOut));
                 element = wwait.until(new ExpectedCondition<WebElement>() {
                     @Override
                     public WebElement apply(final WebDriver d) {
@@ -90,7 +91,7 @@ public class WaitTask extends AbstractTask {
                     // limit the timeOut to the configured timeout
                     this.timeOut = configuredTimeOut;
                 }
-                final WebDriverWait wwait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), this.timeOut);
+                final WebDriverWait wwait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(this.timeOut));
                 element = wwait.until(new ExpectedCondition<WebElement>() {
                     @Override
                     public WebElement apply(final WebDriver d) {

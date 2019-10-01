@@ -1,6 +1,8 @@
 
 package com.monkey.core.task.web.workstation;
 
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -16,7 +18,6 @@ import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidKeyCode;
 
 
 public class KeyBoardTask extends AbstractTask {
@@ -39,7 +40,7 @@ public class KeyBoardTask extends AbstractTask {
             } else if (this.name.equals(KeyBoard.KEYBOARD_PRESS_ESCAPE)) {
                 this.description = "Press key Escape";
                 if (MonkeyExecutionContext.isAndroid())
-                    ((AndroidDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).pressKeyCode(AndroidKeyCode.ENTER);
+                    ((AndroidDriver<WebElement>) (ExecutionManager.getMonkeyDriver())).pressKey(new KeyEvent(AndroidKey.ENTER));
                 if (MonkeyExecutionContext.isIOS())
                     ((IOSDriver<WebElement>) ExecutionManager.getMonkeyDriver()).getKeyboard().sendKeys(Keys.ESCAPE);
                 // TODO add mobile management here

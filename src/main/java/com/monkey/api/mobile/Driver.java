@@ -2,6 +2,7 @@ package com.monkey.api.mobile;
 
 import java.util.Set;
 
+import io.appium.java_client.android.Activity;
 import org.openqa.selenium.WebElement;
 
 import com.monkey.api.Wait;
@@ -118,6 +119,6 @@ public class Driver {
     public static void startActivity(final String appPackage, final String appActivity) {
         final AppiumDriver<WebElement> driver = Driver.getAppiumDriver();
         final AndroidDriver<?> androidDriver = (AndroidDriver<?>) driver;
-        androidDriver.startActivity(appPackage, appActivity);
+        androidDriver.startActivity(new Activity(appPackage, appActivity));
     }
 }

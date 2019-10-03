@@ -1,18 +1,7 @@
-
-
 /**
  * This package encapsulate all the monkey services
  */
 package com.monkey.services.documentation;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
-import org.testng.ITestNGMethod;
 
 import com.monkey.api.MonkeyLogger;
 import com.monkey.api.enumeration.LogLevel;
@@ -20,6 +9,14 @@ import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.TaskStatus;
 import com.monkey.core.utils.Utils;
 import com.monkey.services.ScreenShotTaker;
+import org.apache.commons.lang3.StringUtils;
+import org.testng.ITestNGMethod;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 
 
 public class DocumentationGenerator {

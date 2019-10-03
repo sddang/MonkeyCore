@@ -1,4 +1,3 @@
-
 /**
  * The package used to manage the exceptions
  */

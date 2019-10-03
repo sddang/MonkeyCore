@@ -1,11 +1,5 @@
 package com.monkey.services.report;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.ITestResult;
-
 import com.monkey.api.MonkeyLogger;
 import com.monkey.api.enumeration.LogLevel;
 import com.monkey.core.session.ExecutionManager;
@@ -13,6 +7,11 @@ import com.monkey.core.utils.Utils;
 import com.monkey.services.ScreenShotTaker;
 import com.monkey.services.log.LogTrackerEvent;
 import com.relevantcodes.extentreports.LogStatus;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.ITestResult;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ExtentReport {
 
@@ -160,13 +159,16 @@ public class ExtentReport {
         ExecutionManager.getMonkeyDriver().getTestReport().log(LogStatus.FAIL, ExtentReport.throwableToString(t));
     }
 
-    public static void logSuccessedTest() {
+    public static void logSuccessfulTest() {
         switch (ExecutionManager.getMonkeyDriver().getTestReport().getRunStatus()) {
             case ERROR:
                 ExecutionManager.getMonkeyDriver().getTestReport().log(LogStatus.ERROR, "End test with error!");
                 break;
             case WARNING:
                 ExecutionManager.getMonkeyDriver().getTestReport().log(LogStatus.WARNING, "End test with warning!");
+                break;
+            case FAIL:
+                ExecutionManager.getMonkeyDriver().getTestReport().log(LogStatus.FAIL, "End test with failure!");
                 break;
             default:
                 ExecutionManager.getMonkeyDriver().getTestReport().log(LogStatus.PASS, "End test with success!");

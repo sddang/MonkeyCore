@@ -1,12 +1,14 @@
 package com.monkey.core.driver;
 
-import java.util.List;
-
-import org.openqa.selenium.*;
-
 import com.monkey.services.data.DataMapper;
 import com.monkey.services.documentation.DocumentObject;
 import com.relevantcodes.extentreports.ExtentTest;
+import org.openqa.selenium.HasCapabilities;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+import java.util.List;
 
 public interface MonkeyDriver extends HasCapabilities, JavascriptExecutor, TakesScreenshot, WebDriver {
 

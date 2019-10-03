@@ -1,22 +1,20 @@
-
 package com.monkey.core.page;
-
-import java.util.List;
-
-import org.openqa.selenium.WebElement;
 
 import com.monkey.api.enumeration.Selector;
 import com.monkey.api.page.MonkeyWebElement;
 import com.monkey.core.exception.ExceptionCode;
 import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.session.ExecutionManager;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 
 public abstract class MonkeyAbstractElement {
 
+    protected String inputValue;
     private String identifier;
     private Selector selector;
-    protected String inputValue;
     private WebElement element;
     private List<WebElement> listElement;
     private String variableName = "dynamicVar";
@@ -34,7 +32,7 @@ public abstract class MonkeyAbstractElement {
      * @param identifier the key identifier of the element
      * @param selector   the way to find the element by id, name, xpath ...
      * @param tagName    the HTML tag name
-     * @param inputValu  the value to be set to the element
+     * @param inputValue the value to be set to the element
      */
     public MonkeyAbstractElement(final String identifier, final Selector selector, final String tagName, final String inputValue) {
         this.identifier = identifier;
@@ -139,11 +137,6 @@ public abstract class MonkeyAbstractElement {
         return this.element;
     }
 
-    public WebElement getInitWebElement() {
-        this.initializeWebElement(true);
-        return this.element;
-    }
-
     /**
      * Set the selenium web element object
      *
@@ -151,6 +144,11 @@ public abstract class MonkeyAbstractElement {
      */
     public void setWebElement(final WebElement element) {
         this.element = element;
+    }
+
+    public WebElement getInitWebElement() {
+        this.initializeWebElement(true);
+        return this.element;
     }
 
     /**
@@ -175,16 +173,9 @@ public abstract class MonkeyAbstractElement {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer(300);
-        sb.append(this.variableName).append(".\n ");
-        sb.append("TestElement : {identifier :").append(this.identifier).append(",");
-        sb.append("selector :").append(this.selector).append(",");
-        // sb.append("inputValue :")
-        // .append(MoziumExecutionManager.getDriver().getDataMapper()
-        // .mapData(inputValue)).append(",");
-        // sb.append("defaultValue :").append(defaultValue).append(",");
-        // sb.append("variableName :").append(variableName).append(",");
-        // sb.append("WebElement :").append(element).append(",");
-        sb.append("}");
+        sb.append("TestElement: ").append(this.variableName);
+        sb.append(" = {identifier: ").append(this.identifier).append(" , ");
+        sb.append("selector: ").append(this.selector).append("}");
         return sb.toString();
     }
 
@@ -194,13 +185,13 @@ public abstract class MonkeyAbstractElement {
         return this.listElement;
     }
 
+    public void setListElement(final List<WebElement> listElement) {
+        this.listElement = listElement;
+    }
+
     public List<WebElement> getInitListElement() {
         this.initializeWebElementList();
         return this.listElement;
-    }
-
-    public void setListElement(final List<WebElement> listElement) {
-        this.listElement = listElement;
     }
 
 }

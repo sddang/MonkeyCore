@@ -1,22 +1,33 @@
-
-
 package com.monkey.services;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import org.testng.IRetryAnalyzer;
-import org.testng.ITestResult;
 
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.session.TestListenerUtil;
 import com.monkey.services.log.LogTrackerEvent;
+import org.testng.IRetryAnalyzer;
+import org.testng.ITestResult;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class RetryAnalyzer implements IRetryAnalyzer {
 
     private static Integer maxRetries;
     private final Map<Integer, Integer> retryCount = new HashMap<>();
+
+    public static int getMaxRetriesAllowed() {
+        final int count = ExecutionManager.getConfiguration().getRetryTestingCount();
+        return RetryAnalyzer.setMaxRetries(count > 1 ? count - 1 : count);
+    }
+
+    public static Integer getMaxRetries() {
+        return RetryAnalyzer.maxRetries;
+    }
+
+    public static Integer setMaxRetries(final Integer maxRetries) {
+        RetryAnalyzer.maxRetries = maxRetries;
+        return maxRetries;
+    }
 
     @Override
     public boolean retry(final ITestResult result) {
@@ -46,19 +57,5 @@ public class RetryAnalyzer implements IRetryAnalyzer {
     private int getRetryCount(final ITestResult result) {
         int testId = TestListenerUtil.getId(result);
         return this.retryCount.containsKey(testId) ? this.retryCount.get(testId) : 0;
-    }
-
-    public static int getMaxRetriesAllowed() {
-        final int count = ExecutionManager.getConfiguration().getRetryTestingCount();
-        return RetryAnalyzer.setMaxRetries(count > 1 ? count - 1 : count);
-    }
-
-    public static Integer getMaxRetries() {
-        return RetryAnalyzer.maxRetries;
-    }
-
-    public static Integer setMaxRetries(final Integer maxRetries) {
-        RetryAnalyzer.maxRetries = maxRetries;
-        return maxRetries;
     }
 }

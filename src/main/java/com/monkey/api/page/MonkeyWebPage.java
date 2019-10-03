@@ -1,14 +1,9 @@
-
 /**
  * This package will be exposed to the external. It will
  * be used to write the tests.
  * All the utilies, the DSL and the apis are in this document
  */
 package com.monkey.api.page;
-
-import java.lang.reflect.Field;
-import java.util.HashSet;
-import java.util.Set;
 
 import com.monkey.api.annotation.InjectComponent;
 import com.monkey.api.annotation.InjectPage;
@@ -17,7 +12,12 @@ import com.monkey.core.exception.ExceptionCode;
 import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.page.MonkeyAbstractPage;
 
+import java.lang.reflect.Field;
+import java.util.HashSet;
+import java.util.Set;
+
 public class MonkeyWebPage extends MonkeyAbstractPage {
+
     /**
      * Constructor the TestPage class. At this time we load all the elements and
      * we build them
@@ -108,8 +108,7 @@ public class MonkeyWebPage extends MonkeyAbstractPage {
     /**
      * Build TestElements by setting them all there properties described in the @Locator
      *
-     * @param locator
-     *            annotation
+     * @param locator annotation
      * @return
      */
     private MonkeyWebElement buildTestElement(final WebLocator locator) {

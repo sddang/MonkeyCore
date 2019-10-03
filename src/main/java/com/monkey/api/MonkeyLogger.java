@@ -1,7 +1,5 @@
 package com.monkey.api;
 
-import org.testng.Reporter;
-
 import com.monkey.api.enumeration.LogLevel;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.TaskStatus;
@@ -11,6 +9,7 @@ import com.monkey.services.documentation.DocumentationType;
 import com.monkey.services.log.LogTrackerEvent;
 import com.monkey.services.report.ExtentReport;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.Reporter;
 
 public class MonkeyLogger {
 
@@ -21,7 +20,6 @@ public class MonkeyLogger {
     public static void log(final String className, final String message, final LogLevel level) {
         final TaskStatus docStatus;
         final LogStatus reportStatus;
-
         switch (level) {
             case FATAL:
                 docStatus = TaskStatus.FAILED;
@@ -32,23 +30,23 @@ public class MonkeyLogger {
                 reportStatus = LogStatus.ERROR;
                 break;
             case WARNING:
-                docStatus = TaskStatus.SUCCESSED;
+                docStatus = TaskStatus.SUCCESSFUL;
                 reportStatus = LogStatus.WARNING;
                 break;
-            case DEBUG:
-                docStatus = TaskStatus.SUCCESSED;
-                reportStatus = LogStatus.UNKNOWN;
+            case FAIL:
+                docStatus = TaskStatus.FAILED;
+                reportStatus = LogStatus.FAIL;
                 break;
             case INFO:
-                docStatus = TaskStatus.SUCCESSED;
+                docStatus = TaskStatus.SUCCESSFUL;
                 reportStatus = LogStatus.INFO;
                 break;
             case PASS:
-                docStatus = TaskStatus.SUCCESSED;
+                docStatus = TaskStatus.SUCCESSFUL;
                 reportStatus = LogStatus.PASS;
                 break;
             default:
-                docStatus = TaskStatus.SUCCESSED;
+                docStatus = TaskStatus.SUCCESSFUL;
                 reportStatus = LogStatus.UNKNOWN;
         }
 
@@ -61,7 +59,7 @@ public class MonkeyLogger {
             ExtentReport.logWithScreenshot(reportStatus, message, screenshotFilePath);
         } else {
             if (reportStatus.equals(LogStatus.FATAL) || reportStatus.equals(LogStatus.ERROR)
-                    || reportStatus.equals(LogStatus.PASS)) {
+                    || reportStatus.equals(LogStatus.FAIL)) {
                 final String screenshotFilePath = ScreenShotTaker.takeScreenshots();
                 ExtentReport.logWithScreenshot(reportStatus, message, screenshotFilePath);
             } else {

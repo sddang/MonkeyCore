@@ -1,11 +1,11 @@
 package com.monkey.api.annotation;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import com.monkey.api.enumeration.Selector;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import com.monkey.api.enumeration.Selector;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * Annotation used for the TestElement. It decorate the element to be located by the monkey Framework.

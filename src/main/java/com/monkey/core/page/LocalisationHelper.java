@@ -1,15 +1,4 @@
-
 package com.monkey.core.page;
-
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.monkey.api.enumeration.HTMLType;
 import com.monkey.api.enumeration.Selector;
@@ -19,6 +8,15 @@ import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.services.data.DataMapper;
 import com.monkey.services.log.LogTrackerEvent;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class LocalisationHelper {

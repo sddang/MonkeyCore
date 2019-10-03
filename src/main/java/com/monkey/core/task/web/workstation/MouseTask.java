@@ -1,9 +1,4 @@
-
-
 package com.monkey.core.task.web.workstation;
-
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.Locatable;
 
 import com.monkey.api.Wait;
 import com.monkey.api.page.MonkeyWebElement;
@@ -12,6 +7,8 @@ import com.monkey.api.web.workstation.Mouse;
 import com.monkey.core.enumeration.Protocol;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.interactions.PointerInput;
 
 import java.time.Duration;

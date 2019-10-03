@@ -1,9 +1,9 @@
 package com.monkey.api.page;
 
-import java.lang.reflect.Field;
-
 import com.monkey.api.page.decorator.MonkeyMobileDecorator;
 import com.monkey.core.page.MonkeyAbstractPage;
+
+import java.lang.reflect.Field;
 
 public class MonkeyMobilePage extends MonkeyAbstractPage {
 

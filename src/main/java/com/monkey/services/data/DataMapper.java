@@ -1,18 +1,25 @@
-
-
 package com.monkey.services.data;
-
-import java.io.IOException;
 
 import com.monkey.core.exception.ExceptionCode;
 import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.utils.JsonParser;
 
+import java.io.IOException;
+
 public class DataMapper extends JsonParser<TestData> {
 
     private TestData testData;
     private String path;
+
+    /**
+     * Get the mapper of current execution context
+     *
+     * @return
+     */
+    public static DataMapper getSessionMapper() {
+        return ExecutionManager.getMonkeyDriver().getDataMapper();
+    }
 
     /**
      * Read the Data file
@@ -52,15 +59,6 @@ public class DataMapper extends JsonParser<TestData> {
             throw new MonkeyException(ExceptionCode.MAPPED_KEY_NOTFOUND_EXCEPTION, key);
         }
         return value;
-    }
-
-    /**
-     * Get the mapper of current execution context
-     *
-     * @return
-     */
-    public static DataMapper getSessionMapper() {
-        return ExecutionManager.getMonkeyDriver().getDataMapper();
     }
 
     /**

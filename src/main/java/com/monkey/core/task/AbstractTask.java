@@ -1,4 +1,3 @@
-
 /**
  * Package to manage the Tasks
  */
@@ -8,7 +7,7 @@ import com.monkey.api.page.MonkeyWebElement;
 import com.monkey.api.web.browser.Window;
 import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.session.ExecutionManager;
-import com.monkey.services.HilightElementEvent;
+import com.monkey.services.HighlightElementEvent;
 import com.monkey.services.ScreenShotTaker;
 import com.monkey.services.documentation.DocumentationEvent;
 import com.monkey.services.documentation.DocumentationType;
@@ -19,9 +18,9 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public abstract class AbstractTask {
 
+    protected boolean initElement = true;
     private TaskStatus status;
     private MonkeyWebElement element;
-    protected boolean initElement = true;
 
     /**
      * Run the task
@@ -41,7 +40,7 @@ public abstract class AbstractTask {
                 final boolean allowEnabledElement = this.allowEnabledElement();
                 this.element.initializeWebElement(allowEnabledElement);
             }
-            HilightElementEvent.hilightElement(this.element);
+            HighlightElementEvent.highlightElement(this.element);
         }
     }
 
@@ -67,7 +66,7 @@ public abstract class AbstractTask {
     private void run() {
         try {
             this.execute();
-            this.status = TaskStatus.SUCCESSED;
+            this.status = TaskStatus.SUCCESSFUL;
         } catch (final MonkeyException e) {
             this.status = TaskStatus.FAILED;
         }
@@ -134,7 +133,6 @@ public abstract class AbstractTask {
     protected boolean isVerbose() {
         return false;
     }
-
 
     public void setInitElement(final boolean initElement) {
         this.initElement = initElement;

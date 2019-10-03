@@ -1,12 +1,9 @@
-
-
 package com.monkey.core.task.web.element;
 
+import com.monkey.core.task.AbstractTask;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-
-import com.monkey.core.task.AbstractTask;
 
 public class ClearTask extends AbstractTask {
 
@@ -27,7 +24,7 @@ public class ClearTask extends AbstractTask {
 
     @Override
     public String getDescription() {
-        return "Clear the conent of the element << " + this.getElement() + " >>";
+        return "Clear the content of the element \n[ " + this.getElement() + " ]";
     }
 
     @Override

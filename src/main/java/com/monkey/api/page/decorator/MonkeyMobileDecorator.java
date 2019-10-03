@@ -1,9 +1,5 @@
 package com.monkey.api.page.decorator;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.monkey.api.annotation.AndroidLocator;
 import com.monkey.api.annotation.IosLocator;
 import com.monkey.api.page.MonkeyMobileElement;
@@ -12,6 +8,10 @@ import com.monkey.core.page.MonkeyAbstractElement;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.impl.drivers.DriverType;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MonkeyMobileDecorator {
 
     private static final List<Class<? extends MonkeyAbstractElement>> availableElementClasses = new ArrayList<Class<? extends MonkeyAbstractElement>>() {
@@ -19,7 +19,6 @@ public class MonkeyMobileDecorator {
 
         {
             this.add(MonkeyMobileElement.class);
-
         }
     };
 

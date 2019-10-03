@@ -1,13 +1,7 @@
-
 package com.monkey.core.session;
 
-import java.io.IOException;
-import java.lang.reflect.Method;
-
-import org.testng.*;
-import org.testng.internal.ConstructorOrMethod;
-
 import com.monkey.api.annotation.InjectData;
+import com.monkey.core.assertion.MonkeyAssertion;
 import com.monkey.core.driver.MonkeyDriverSetup;
 import com.monkey.core.task.TaskStatus;
 import com.monkey.services.RetryAnalyzer;
@@ -18,6 +12,14 @@ import com.monkey.services.documentation.DocumentationType;
 import com.monkey.services.log.LogTrackerEvent;
 import com.monkey.services.report.ExtentReport;
 import com.relevantcodes.extentreports.LogStatus;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestNGMethod;
+import org.testng.ITestResult;
+import org.testng.internal.ConstructorOrMethod;
+
+import java.io.IOException;
+import java.lang.reflect.Method;
 
 
 public class TestManager implements ITestListener {
@@ -131,6 +133,7 @@ public class TestManager implements ITestListener {
         } catch (final Exception e) {
             ExtentReport.endTest();
         } finally {
+//            MonkeyAssertion.getSoftAssert().assertAll();
             MonkeyDriverSetup.closeDriver();
         }
 
@@ -138,7 +141,7 @@ public class TestManager implements ITestListener {
 
     @Override
     public void onTestSuccess(final ITestResult result) {
-        ExtentReport.logSuccessedTest();
+        ExtentReport.logSuccessfulTest();
         try {
             this.onTestEnd(result, true);
         } catch (final InterruptedException | IOException e) {

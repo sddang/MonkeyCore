@@ -1,17 +1,15 @@
-
 package com.monkey.core.task.web.element;
-
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.monkey.api.MonkeyExecutionContext;
 import com.monkey.api.Wait;
 import com.monkey.api.web.workstation.KeyBoard;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -80,7 +78,7 @@ public class ClickTask extends AbstractTask {
 
     @Override
     public String getDescription() {
-        return "Click on element [ " + this.getElement() + "]";
+        return "Click on element \n[ " + this.getElement() + " ]";
     }
 
     @Override

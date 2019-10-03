@@ -1,17 +1,15 @@
 package com.monkey.api.mobile;
 
-import java.util.Set;
-
-import io.appium.java_client.android.Activity;
-import org.openqa.selenium.WebElement;
-
 import com.monkey.api.Wait;
 import com.monkey.core.exception.ExceptionCode;
 import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.session.ExecutionManager;
-
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.Set;
 
 public class Driver {
 

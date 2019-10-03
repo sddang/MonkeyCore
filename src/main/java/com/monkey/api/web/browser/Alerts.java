@@ -1,9 +1,7 @@
-
 package com.monkey.api.web.browser;
 
-import org.openqa.selenium.NoAlertPresentException;
-
 import com.monkey.core.task.web.browser.AlertTask;
+import org.openqa.selenium.NoAlertPresentException;
 
 /**
  * This class manage the actions allowed for the Alert component

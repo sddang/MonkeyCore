@@ -1,22 +1,18 @@
-
 package com.monkey.core.config;
-
-import org.openqa.selenium.remote.DesiredCapabilities;
-
 
 import com.monkey.core.enumeration.BrowserMode;
 import com.monkey.core.enumeration.Protocol;
 import com.monkey.core.enumeration.SupportedVarEnv;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.impl.drivers.DriverType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 
 public abstract class MonkeyConfig {
 
-    private Protocol protocol;
-
     // execution config
     protected DriverType driverType;
+    private Protocol protocol;
     private long timeOut;
     private int retryTestingCount;
     private boolean highlightActiveElement;

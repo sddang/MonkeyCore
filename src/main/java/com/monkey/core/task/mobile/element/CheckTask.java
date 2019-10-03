@@ -27,7 +27,7 @@ public class CheckTask extends AbstractTask {
 
     @Override
     public String getDescription() {
-        return "click on element [ " + this.getElement() + "]";
+        return "click on element \n[ " + this.getElement() + " ]";
     }
 
     @Override

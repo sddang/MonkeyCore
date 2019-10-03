@@ -1,4 +1,3 @@
-
 package com.monkey.api;
 
 import com.monkey.api.page.MonkeyWebElement;

@@ -1,5 +1,3 @@
-
-
 package com.monkey.api.web.workstation;
 
 import com.monkey.api.page.MonkeyWebElement;

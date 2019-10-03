@@ -1,13 +1,10 @@
-
 package com.monkey.core.task.mobile.element;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
-import com.monkey.api.Assertion;
 import com.monkey.api.Wait;
 import com.monkey.core.task.AbstractTask;
 import com.monkey.services.data.DataMapper;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 
@@ -24,7 +21,7 @@ public class SelectTask extends AbstractTask {
         final WebElement webElement = this.getElement().getWebElement();
 
         final String value = DataMapper.getSessionMapper().mapData(this.getElement().getInputValue());
-        this.description = "Select the option << " + value + " >> for the select << " + this.getElement() + " >>";
+        this.description = "Select the option << " + value + " >> for the select \n[ " + this.getElement() + " ]";
         final Select select = new Select(webElement);
         try {
             select.selectByVisibleText(value);

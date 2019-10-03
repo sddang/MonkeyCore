@@ -1,16 +1,15 @@
-
 package com.monkey.core.utils;
 /**
  * This package contains one class that parse jsosn files
  */
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.monkey.core.exception.ExceptionCode;
 import com.monkey.core.exception.MonkeyException;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class JsonParser<T extends Object> {
     /**

@@ -1,13 +1,11 @@
-
 package com.monkey.core.task.web.element;
-
-import org.openqa.selenium.WebElement;
 
 import com.monkey.api.Wait;
 import com.monkey.api.web.workstation.KeyBoard;
 import com.monkey.core.enumeration.Protocol;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
+import org.openqa.selenium.WebElement;
 
 
 public class SubmitTask extends AbstractTask {
@@ -42,7 +40,7 @@ public class SubmitTask extends AbstractTask {
 
     @Override
     public String getDescription() {
-        return "Submit element << " + this.getElement() + " >>";
+        return "Submit element \n[ " + this.getElement() + " ]";
     }
 
     @Override

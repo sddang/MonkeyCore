@@ -1,10 +1,5 @@
 package com.monkey.core.task.mobile.workstation;
 
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-
 import com.monkey.api.MonkeyExecutionContext;
 import com.monkey.api.MonkeyLogger;
 import com.monkey.api.enumeration.LogLevel;
@@ -12,15 +7,18 @@ import com.monkey.api.mobile.workstation.KeyBoard;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.HideKeyboardStrategy;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 public class KeyBoardTask extends AbstractTask {
 
     private String name;
     private String description;
 
-    @SuppressWarnings("unchecked")
     @Override
     public void execute() {
         switch (this.name) {

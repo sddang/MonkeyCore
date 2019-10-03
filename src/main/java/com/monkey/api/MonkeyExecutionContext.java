@@ -1,11 +1,11 @@
 package com.monkey.api;
 
-import java.util.Map;
-
 import com.monkey.core.enumeration.BrowserMode;
 import com.monkey.core.enumeration.SupportedVarEnv;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.impl.drivers.DriverType;
+
+import java.util.Map;
 
 public class MonkeyExecutionContext {
 

@@ -1,8 +1,8 @@
 package com.monkey.api;
 
-import java.io.Serializable;
-
 import org.openqa.selenium.By;
+
+import java.io.Serializable;
 
 public abstract class MonkeyBy {
 

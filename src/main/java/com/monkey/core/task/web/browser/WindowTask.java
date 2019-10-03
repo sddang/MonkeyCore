@@ -1,15 +1,12 @@
-
-
 package com.monkey.core.task.web.browser;
-
-import java.util.Set;
-
-import org.openqa.selenium.Dimension;
 
 import com.monkey.api.Wait;
 import com.monkey.api.web.browser.Window;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
+import org.openqa.selenium.Dimension;
+
+import java.util.Set;
 
 public class WindowTask extends AbstractTask {
 
@@ -128,16 +125,16 @@ public class WindowTask extends AbstractTask {
     }
 
     /**
-     * @return the hight
+     * @return the height
      */
-    public int getHight() {
+    public int getHeight() {
         return this.height;
     }
 
     /**
      * @param hight the hight to set
      */
-    public void setHight(final int hight) {
+    public void setHeight(final int hight) {
         height = hight;
     }
 

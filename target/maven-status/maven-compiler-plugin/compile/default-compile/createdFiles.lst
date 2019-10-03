@@ -46,7 +46,6 @@ com\monkey\api\web\browser\Cookies.class
 com\monkey\core\session\TestManager.class
 com\monkey\api\MonkeyOCR.class
 com\monkey\api\enumeration\Selector.class
-com\monkey\services\HilightElementEvent.class
 com\monkey\api\MonkeyBy$monkeyByClassName.class
 com\monkey\core\task\AbstractTask.class
 com\monkey\core\driver\MonkeyDriverSetup$1.class
@@ -97,6 +96,7 @@ com\monkey\services\report\MonkeyExtentReport.class
 com\monkey\api\annotation\InjectData.class
 com\monkey\impl\drivers\DriverType.class
 com\monkey\core\task\web\workstation\MouseTask.class
+com\monkey\services\HighlightElementEvent.class
 com\monkey\api\web\browser\Window.class
 com\monkey\core\task\web\element\ClearTask.class
 com\monkey\api\page\MonkeyWebElement.class

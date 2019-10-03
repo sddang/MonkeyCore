@@ -1,11 +1,5 @@
 package com.monkey.core.task.common;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
 import com.monkey.api.MonkeyBy;
 import com.monkey.api.page.MonkeyMobileElement;
 import com.monkey.api.page.MonkeyWebElement;
@@ -14,6 +8,11 @@ import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
 import com.monkey.core.task.web.element.ClickTask;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import java.util.List;
 
 public class MasterClickTask extends AbstractTask {
 
@@ -33,16 +32,16 @@ public class MasterClickTask extends AbstractTask {
     private int x;
     private int y;
 
+    public MasterClickTask() {
+        this.initElement = false;
+    }
+
     public void setY(final int y) {
         this.y = y;
     }
 
     public void setX(final int x) {
         this.x = x;
-    }
-
-    public MasterClickTask() {
-        this.initElement = false;
     }
 
     @Override

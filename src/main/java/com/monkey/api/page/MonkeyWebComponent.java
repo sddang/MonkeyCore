@@ -1,15 +1,14 @@
-
 package com.monkey.api.page;
-
-import java.lang.reflect.Field;
-import java.util.HashSet;
-import java.util.Set;
 
 import com.monkey.api.annotation.InjectComponent;
 import com.monkey.api.annotation.WebLocator;
 import com.monkey.core.exception.ExceptionCode;
 import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.page.MonkeyAbstractComponent;
+
+import java.lang.reflect.Field;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MonkeyWebComponent extends MonkeyAbstractComponent {
     /**

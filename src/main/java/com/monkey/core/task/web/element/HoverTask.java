@@ -1,9 +1,4 @@
-
 package com.monkey.core.task.web.element;
-
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import com.monkey.api.Wait;
 import com.monkey.api.enumeration.HTMLType;
@@ -12,6 +7,9 @@ import com.monkey.api.web.workstation.Navigator;
 import com.monkey.core.enumeration.SupportedBrowsers;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class HoverTask extends AbstractTask {
 
@@ -66,7 +64,7 @@ public class HoverTask extends AbstractTask {
 
     @Override
     public String getDescription() {
-        return "Hover the element << " + this.getElement() + " >>";
+        return "Hover the element \n[ " + this.getElement() + " ]";
     }
 
     @Override

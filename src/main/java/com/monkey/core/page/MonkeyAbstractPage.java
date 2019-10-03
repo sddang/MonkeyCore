@@ -1,14 +1,13 @@
-
 package com.monkey.core.page;
-
-import java.util.Set;
 
 import com.monkey.api.page.MonkeyWebComponent;
 import com.monkey.api.page.MonkeyWebElement;
 import com.monkey.api.page.MonkeyWebPage;
 
+import java.util.Set;
 
-public abstract class MonkeyAbstractPage {
+
+public abstract class MonkeyAbstractPage<T> {
 
     private Set<MonkeyWebElement> pageElements;
     private Set<MonkeyWebComponent> pageComponents;
@@ -45,7 +44,7 @@ public abstract class MonkeyAbstractPage {
     /**
      * Set of the injected embedded pages
      *
-     * @param pageEmbeddedPages
+     * @param embeddedPages
      */
     protected void setEmbeddedPages(final Set<MonkeyWebPage> embeddedPages) {
         this.embeddedPages = embeddedPages;
@@ -82,5 +81,4 @@ public abstract class MonkeyAbstractPage {
 
         return sb.toString();
     }
-
 }

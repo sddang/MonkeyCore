@@ -1,10 +1,5 @@
 package com.monkey.core.assertion;
 
-import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
-import org.testng.Assert;
-
 import com.monkey.api.Assertion;
 import com.monkey.api.MonkeyExecutionContext;
 import com.monkey.api.MonkeyLogger;
@@ -15,8 +10,19 @@ import com.monkey.api.page.MonkeyWebElement;
 import com.monkey.core.page.LocalisationHelper;
 import com.monkey.services.data.DataMapper;
 import com.monkey.services.log.LogTrackerEvent;
+import org.apache.commons.lang3.StringUtils;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
+
+import java.util.List;
 
 public class MonkeyAssertion {
+
+    private static SoftAssert softAssert;
+
+    public static SoftAssert getSoftAssert() {
+        return softAssert;
+    }
 
     public static void checkboxChecked(final MonkeyWebElement element, final boolean checked, final String logFunctional,
                                        final boolean exitOnError) {
@@ -30,7 +36,7 @@ public class MonkeyAssertion {
                 condition = true;
             }
         }
-
+//        softAssert.assertEquals(condition,true);
         final String logTracker = "Verify checkbox is checked " + checked;
         final String logAssert = "Checkbox should be checked " + !checked;
 
@@ -50,7 +56,7 @@ public class MonkeyAssertion {
         expected = DataMapper.getSessionMapper().mapData(expected);
         final String value = LocalisationHelper.getElementValue(element);
         final boolean testIsOK = value.equals(expected);
-
+//        softAssert.assertEquals(value,expected);
         final String logTracker = "Verify that the given value '" + expected + "' equals to the value of the elemtent '"
                 + element + "'";
         final String logAssert = "Value Or Option '" + expected + "' should be equals to element value :" + value
@@ -65,7 +71,7 @@ public class MonkeyAssertion {
         final String container = LocalisationHelper.getElementValue(element);
 
         final boolean testIsOK = container.contains(expected);
-
+//        softAssert.assertEquals(testIsOK,true);
         final String logTracker = "Verify that the value of the element '" + container + "' contains the vulue expected '"
                 + expected + "'";
         final String logAssert = "Value Or Option '" + container + "' of the elment '" + element
@@ -95,7 +101,7 @@ public class MonkeyAssertion {
         expected = DataMapper.getSessionMapper().mapData(expected);
         final String value = LocalisationHelper.getElementValue(element);
         final boolean testIsOK = !value.equals(expected);
-
+//        softAssert.assertNotEquals(value,expected);
         final String logTracker = "Verify that the given value '" + expected
                 + "' is different to to the value of the elemtent '" + element + "'";
         final String logAssert = "Value Or Option '" + expected + "' shouldn't be equal to element value :" + value
@@ -184,7 +190,7 @@ public class MonkeyAssertion {
 
     public static void elementPresent(final MonkeyWebElement element, final String logFunctional, final boolean exitOnError) {
         final boolean testIsOK = LocalisationHelper.isElementPresent(element);
-
+//        softAssert.assertEquals(testIsOK,true);
         final String logTracker = "Verify that the element '" + element + "' is present in the page";
         final String logAssert = "element  '" + element.getVariableName() + "' should be present!!!\n Element : " + element;
 
@@ -193,7 +199,7 @@ public class MonkeyAssertion {
 
     public static void elementNotPresent(final MonkeyWebElement element, final String logFunctional, final boolean exitOnError) {
         final boolean testIsOK = !LocalisationHelper.isElementPresent(element);
-
+//        softAssert.assertEquals(testIsOK,false);
         final String logTracker = "Verify that the element '" + element + "' is not present in the page";
         final String logAssert = "element  '" + element.getVariableName() + "' shouldn't be present!!! \n Element : "
                 + element;
@@ -212,7 +218,7 @@ public class MonkeyAssertion {
 
     public static void equals(final Object actual, final Object expected, final String logFunctional, final boolean exitOnError) {
         final boolean testIsOK = actual.equals(expected);
-
+//        softAssert.assertEquals(actual, expected);
         final String logTracker = "Verify that object '" + actual + "' equals to object '" + expected
                 + "'";
         final String logAssert = "Object  '" + actual + "' should be equal to object '" + expected
@@ -234,7 +240,7 @@ public class MonkeyAssertion {
 
     public static void equals(final String actual, final String expected, final String logFunctional, final boolean exitOnError) {
         final boolean testIsOK = actual.equals(expected);
-
+//        softAssert.assertEquals(actual, expected);
         final String logTracker = "Verify that string '" + actual + "' equals to string '" + expected + "'";
         final String logAssert = "String  '" + actual + "' should be equal to string '" + expected + "' !!!";
 
@@ -243,7 +249,7 @@ public class MonkeyAssertion {
 
     public static void contains(final String container, final String subString, final String logFunctional, final boolean exitOnError) {
         final boolean testIsOK = container.contains(subString);
-
+//        softAssert.assertEquals(testIsOK,true);
         final String logTracker = "Verify that string '" + container + "' contains '" + subString + "'";
         final String logAssert = "String  '" + container + "' should contain '" + subString + "' !!!";
 
@@ -252,7 +258,7 @@ public class MonkeyAssertion {
 
     public static void contains(final List<String> list, final String string, final String logFunctional, final boolean exitOnError) {
         final boolean testIsOK = list.contains(string);
-
+//        softAssert.assertEquals(testIsOK,true);
         final String logTracker = "Verify that the list of string '" + list + "' contains '" + string + "'";
         final String logAssert = "List of string  '" + list + "' should contain '" + string + "' !!!";
 
@@ -266,7 +272,7 @@ public class MonkeyAssertion {
                 testIsOK = true;
             }
         }
-
+//        softAssert.assertEquals(testIsOK, false);
         final String logTracker = "Verify that the list of string '" + list + "' contains the sub string '"
                 + string + "'";
         final String logAssert = "List of string  '" + list + "' should contain the sub string '" + string
@@ -290,13 +296,11 @@ public class MonkeyAssertion {
         LogTrackerEvent.traceAssert(Assertion.class.getName(), logTracker);
         if (test) {
             if (logReport != null) {
-                // if (!exitOnError) {
-                // monkeyLogger.log(Assertion.class.getName(), logReport,
-                // LogLevel.PASS);
-                // } else {
-                MonkeyLogger.log(Assertion.class.getName(), logReport, LogLevel.INFO);
-                // }
-
+//                 if (!exitOnError) {
+                     MonkeyLogger.log(Assertion.class.getName(), logReport, LogLevel.PASS);
+//                 } else {
+//                    MonkeyLogger.log(Assertion.class.getName(), logReport, LogLevel.INFO);
+//                 }
             } else {
                 MonkeyLogger.log(Assertion.class.getName(), logTracker, LogLevel.DEBUG);
             }
@@ -309,7 +313,7 @@ public class MonkeyAssertion {
                 }
             } else {
                 if (logReport != null)
-                    MonkeyLogger.log(Assertion.class.getClass().getName(), logReport, LogLevel.ERROR);
+                    MonkeyLogger.log(Assertion.class.getClass().getName(), logReport, LogLevel.FAIL);
             }
         }
     }

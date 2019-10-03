@@ -1,4 +1,3 @@
-
 /**
  * This package is the core of the framework
  */
@@ -23,12 +22,7 @@ public interface WebAction {
     /**
      * Set profil value to the element
      */
-    void type();
-
-    /**
-     * Set profil value to the element
-     */
-    void type(boolean iosSendKey);
+    void type(String value);
 
     /**
      * Clear the element

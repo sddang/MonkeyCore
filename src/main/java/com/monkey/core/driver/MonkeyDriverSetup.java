@@ -1,22 +1,7 @@
-
 /**
  * Package used to manage the Selenium driver life cycle
  */
 package com.monkey.core.driver;
-
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import org.openqa.grid.common.RegistrationRequest;
-import org.openqa.grid.internal.utils.SelfRegisteringRemote;
-import org.openqa.grid.internal.utils.configuration.GridHubConfiguration;
-import org.openqa.grid.internal.utils.configuration.GridNodeConfiguration;
-import org.openqa.grid.shared.GridNodeServer;
-import org.openqa.grid.web.Hub;
-import org.openqa.selenium.SessionNotCreatedException;
-import org.openqa.selenium.remote.UnreachableBrowserException;
-import org.openqa.selenium.remote.server.SeleniumServer;
 
 import com.monkey.core.config.MonkeyConfig;
 import com.monkey.core.enumeration.SupportedVarEnv;
@@ -31,6 +16,18 @@ import com.monkey.impl.drivers.MonkeyIosDriver;
 import com.monkey.impl.drivers.MonkeySeleniumDriver;
 import com.monkey.services.data.DataMapper;
 import com.monkey.services.log.LogTrackerEvent;
+import org.openqa.grid.common.RegistrationRequest;
+import org.openqa.grid.internal.utils.SelfRegisteringRemote;
+import org.openqa.grid.internal.utils.configuration.GridHubConfiguration;
+import org.openqa.grid.internal.utils.configuration.GridNodeConfiguration;
+import org.openqa.grid.shared.GridNodeServer;
+import org.openqa.grid.web.Hub;
+import org.openqa.selenium.SessionNotCreatedException;
+import org.openqa.selenium.remote.UnreachableBrowserException;
+import org.openqa.selenium.remote.server.SeleniumServer;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class MonkeyDriverSetup {
 

@@ -1,10 +1,7 @@
-
-
 package com.monkey.api.web.workstation;
 
-import org.openqa.selenium.Keys;
-
 import com.monkey.core.task.web.workstation.KeyBoardTask;
+import org.openqa.selenium.Keys;
 
 /**
  * This class manage the keyboard actions

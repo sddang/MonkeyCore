@@ -1,12 +1,9 @@
-
-
 package com.monkey.core.task.web.element;
-
-import org.openqa.selenium.interactions.Actions;
 
 import com.monkey.api.Wait;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
+import org.openqa.selenium.interactions.Actions;
 
 public class DoubleClickTask extends AbstractTask {
 
@@ -23,7 +20,7 @@ public class DoubleClickTask extends AbstractTask {
 
     @Override
     public String getDescription() {
-        return "DoubleClick the element << " + this.getElement() + " >>";
+        return "DoubleClick the element \n[ " + this.getElement() + " ]";
     }
 
     @Override

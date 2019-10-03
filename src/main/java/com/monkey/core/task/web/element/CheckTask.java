@@ -1,5 +1,3 @@
-
-
 package com.monkey.core.task.web.element;
 
 import com.monkey.api.MonkeyExecutionContext;
@@ -23,14 +21,14 @@ public class CheckTask extends AbstractTask {
                 this.getElement().getWebElement().click();
             }
         } else {
-            this.checkforiOS();
+            this.checkForIOS();
         }
     }
 
     /**
      * Handle for iOS elements
      */
-    private void checkforiOS() {
+    private void checkForIOS() {
         final boolean currentState = this.getElement().getWebElement().getAttribute("value") != null && Boolean.parseBoolean(this.getElement().getWebElement().getAttribute("value"));
         if (this.enabled ? !currentState : currentState) {
             this.getElement().click();
@@ -42,7 +40,7 @@ public class CheckTask extends AbstractTask {
      */
     @Override
     public String getDescription() {
-        return "Select the checkBox << " + this.getElement() + " >>";
+        return "Select the checkBox \n[ " + this.getElement() + " ]";
     }
 
     @Override

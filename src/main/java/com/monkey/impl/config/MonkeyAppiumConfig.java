@@ -1,12 +1,10 @@
-
 package com.monkey.impl.config;
-
-import java.util.HashMap;
-
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.monkey.core.config.MonkeyConfig;
 import com.monkey.impl.drivers.DriverType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.util.HashMap;
 
 
 public class MonkeyAppiumConfig extends MonkeyConfig {

@@ -1,9 +1,8 @@
 package com.monkey.api;
 
-import org.openqa.selenium.WebElement;
-
 import com.monkey.api.page.MonkeyWebElement;
 import com.monkey.core.page.LocalisationHelper;
+import org.openqa.selenium.WebElement;
 
 public class MonkeyLocalisationHelper extends LocalisationHelper {
 

@@ -1,23 +1,12 @@
-
 package com.monkey.api.page;
-
-import org.openqa.selenium.Keys;
 
 import com.monkey.api.enumeration.Selector;
 import com.monkey.core.page.LocalisationHelper;
 import com.monkey.core.page.MonkeyAbstractElement;
 import com.monkey.core.page.action.WebAction;
-import com.monkey.core.task.web.element.AddValueTask;
-import com.monkey.core.task.web.element.CheckTask;
-import com.monkey.core.task.web.element.ClearTask;
-import com.monkey.core.task.web.element.ClickTask;
-import com.monkey.core.task.web.element.DoubleClickTask;
-import com.monkey.core.task.web.element.HoverTask;
-import com.monkey.core.task.web.element.RadioCheckTask;
-import com.monkey.core.task.web.element.SelectTask;
-import com.monkey.core.task.web.element.SubmitTask;
-import com.monkey.core.task.web.element.TypeTask;
+import com.monkey.core.task.web.element.*;
 import com.monkey.core.task.web.workstation.KeyBoardTask;
+import org.openqa.selenium.Keys;
 
 public class MonkeyWebElement extends MonkeyAbstractElement implements WebAction {
 
@@ -30,24 +19,11 @@ public class MonkeyWebElement extends MonkeyAbstractElement implements WebAction
      *
      * @param identifier the key identifier of the element
      * @param selector   the way to find the element by id, name, xpath ...
-     * @param tagName    the HTML tag name
-     * @param inputValu  the value to be set to the element
      */
     public MonkeyWebElement(final String identifier, final Selector selector) {
         super(identifier, selector, null, null);
     }
 
-    /**
-     * Constructor with all fields of the element
-     *
-     * @param identifier the key identifier of the element
-     * @param selector   the way to find the element by id, name, xpath ...
-     * @param tagName    the HTML tag name
-     * @param inputValu  the value to be set to the element
-     */
-    public MonkeyWebElement(final String identifier, final Selector selector, final String inputValue) {
-        super(identifier, selector, null, inputValue);
-    }
 
     /**
      * Verify if the element is present in the page.
@@ -103,22 +79,27 @@ public class MonkeyWebElement extends MonkeyAbstractElement implements WebAction
     @Override
     public void addValue() {
         new AddValueTask().setElement(this).runTask();
-
     }
 
     /**
      * Add new value of the element.
      */
-    @Override
-    public void type() {
-        new TypeTask().setElement(this).runTask();
-    }
+//    @Override
+//    public void type() {
+//        new TypeTask().setElement(this).runTask();
+//    }
 
+//    @Override
+//    public void type(final boolean iosSendKey) {
+//        new TypeTask().setElement(this).runTask();
+//    }
     @Override
-    public void type(final boolean iosSendKey) {
-        new TypeTask().setElement(this).runTask();
+    public void type(String value) {
+        final TypeTask type = new TypeTask();
+        type.setElement(this);
+        type.setInputValue(value);
+        type.runTask();
     }
-
 
     /**
      * Clear the value of the element

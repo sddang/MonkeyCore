@@ -1,7 +1,6 @@
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\core\session\TestListenerUtil.java
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\api\mobile\workstation\TouchAction.java
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\impl\drivers\MonkeyIosDriver.java
-E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\services\HilightElementEvent.java
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\core\exception\ExceptionCode.java
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\services\data\DataByLanguage.java
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\api\annotation\WebLocator.java
@@ -51,6 +50,7 @@ E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\impl\config\Monkey
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\api\enumeration\HTMLType.java
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\core\task\mobile\element\ClickTask.java
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\core\task\web\element\HoverTask.java
+E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\services\HighlightElementEvent.java
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\core\task\web\element\SubmitTask.java
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\services\log\LogTrackerEvent.java
 E:\0-Personal\0-Auto\Core\MonkeyCore\src\main\java\com\monkey\services\documentation\DocumentationEvent.java

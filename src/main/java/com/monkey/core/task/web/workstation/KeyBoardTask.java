@@ -1,12 +1,4 @@
-
 package com.monkey.core.task.web.workstation;
-
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
-import io.appium.java_client.ios.IOSDriver;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import com.monkey.api.MonkeyExecutionContext;
 import com.monkey.api.mobile.workstation.TouchAction;
@@ -16,8 +8,13 @@ import com.monkey.core.enumeration.Protocol;
 import com.monkey.core.enumeration.SupportedBrowsers;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
-
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.ios.IOSDriver;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 
 public class KeyBoardTask extends AbstractTask {

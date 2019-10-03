@@ -1,13 +1,12 @@
-
 package com.monkey.services.log;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestNGMethod;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 
 public class LogTrackerEvent {

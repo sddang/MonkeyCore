@@ -11,7 +11,7 @@ public class ClearTask extends AbstractTask {
 
     @Override
     public String getDescription() {
-        return "clear on element [ " + this.getElement() + "]";
+        return "clear on element \n[ " + this.getElement() + " s]";
     }
 
     @Override

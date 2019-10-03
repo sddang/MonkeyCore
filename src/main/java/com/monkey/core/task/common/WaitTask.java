@@ -1,14 +1,4 @@
-
-
 package com.monkey.core.task.common;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.monkey.api.Wait;
 import com.monkey.core.exception.ExceptionCode;
@@ -16,15 +6,21 @@ import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.page.LocalisationHelper;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 
 public class WaitTask extends AbstractTask {
 
+    boolean elementFound;
     private String name;
     private long timeOut;
     private String description;
-
-    boolean elementFound;
     private boolean exitOnError = true;
 
     public WaitTask() {

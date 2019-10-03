@@ -1,16 +1,13 @@
-
-
 package com.monkey.api;
-
-import java.util.List;
-
-import org.testng.Assert;
 
 import com.monkey.api.page.MonkeyMobileElement;
 import com.monkey.api.page.MonkeyWebElement;
 import com.monkey.core.assertion.MonkeyAssertion;
 import com.monkey.core.page.LocalisationHelper;
 import com.monkey.services.data.DataMapper;
+import org.testng.Assert;
+
+import java.util.List;
 
 
 public class Assertion extends Assert {

@@ -1,14 +1,4 @@
-
-
 package com.monkey.core.task.web.workstation;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Set;
-
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.LocalFileDetector;
-import org.openqa.selenium.remote.RemoteWebElement;
 
 import com.monkey.api.Wait;
 import com.monkey.api.web.browser.Window;
@@ -22,6 +12,13 @@ import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
 import com.monkey.services.data.DataMapper;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebElement;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Set;
 
 public class NavigationTask extends AbstractTask {
 
@@ -37,63 +34,61 @@ public class NavigationTask extends AbstractTask {
     @Override
     public void execute() {
 
-        if (this.name.equals(Navigator.OPEN_URL)) {
-            this.description = "Open URL [" + this.getUrl() + "]";
-            final String url = this.formatURL();
-            ExecutionManager.getMonkeyDriver().get(url);
-            // Read information related to the window size switch the device
-            final BrowserMode browserSise = BrowserMode
-                    .valueOf(ExecutionManager.getExecutionContext().get(SupportedVarEnv.browserMode.name()));
-            switch (browserSise) {
-                case desktop:
-                    Window.maximizeWindow();
-                    break;
-                case smartphone:
-                    // http://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions
-                    // resolution Iphone 6-portrait
-                    // If is added for the case to launch tests on Appium-Browser
-                    if (!ExecutionManager.getConfiguration().getProtocol().name().equals(Protocol.appium.name())) {
-                        Window.setSize(400, 800);
-                    }
-
-                    break;
-                case tablette:
-                    // resolution ipad-protrait
-                    Window.setSize(1024, 800);
-                    break;
-            }
-
-        } else if (this.name.equals(Navigator.CLOSE_WINDOW)) {
-            this.description = "Close window ";
-
-            final String currentWindow = ExecutionManager.getMonkeyDriver().getWindowHandle();
-            final Set<String> AllWindows = ExecutionManager.getMonkeyDriver().getWindowHandles();
-            for (final String win : AllWindows) {
-                if (win.equals(currentWindow)) {
-                    ExecutionManager.getMonkeyDriver().switchTo().window(currentWindow).close();
+        switch (this.name) {
+            case Navigator.OPEN_URL:
+                this.description = "Open URL [" + this.getUrl() + "]";
+                final String url = this.formatURL();
+                ExecutionManager.getMonkeyDriver().get(url);
+                // Read information related to the window size switch the device
+                final BrowserMode browserSize = BrowserMode
+                        .valueOf(ExecutionManager.getExecutionContext().get(SupportedVarEnv.browserMode.name()));
+                switch (browserSize) {
+                    case desktop:
+                        Window.maximizeWindow();
+                        break;
+                    case smartphone:
+                        // http://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions
+                        // resolution Iphone 6-portrait
+                        // If is added for the case to launch tests on Appium-Browser
+                        if (!ExecutionManager.getConfiguration().getProtocol().name().equals(Protocol.appium.name())) {
+                            Window.setSize(400, 800);
+                        }
+                        break;
+                    case tablette:
+                        // resolution ipad-protrait
+                        Window.setSize(1024, 800);
+                        break;
                 }
-            }
-        } else if (this.name.equals(Navigator.GET_HTTP_REQUEST_HEADER)) {
-            this.description = "Get http request header";
-
-            throw (new MonkeyException(ExceptionCode.NOT_SUPPORTED_METHOD, Navigator.GET_HTTP_REQUEST_HEADER));
-        } else if (this.name.equals(Navigator.GET_RESPONSE_CODE)) {
-            this.description = "Get response";
-
-            throw (new MonkeyException(ExceptionCode.NOT_SUPPORTED_METHOD, Navigator.GET_HTTP_REQUEST_HEADER));
-        } else if (this.name.equals(Navigator.GO_BACK)) {
-            this.description = "Go back";
-
-            ExecutionManager.getMonkeyDriver().navigate().back();
-        } else if (this.name.equals(Navigator.REFRESH_PAGE)) {
-            this.description = "refresh page";
-
-            ExecutionManager.getMonkeyDriver().navigate().refresh();
-        } else if (this.name.equals(Navigator.UPLOAD_FILE)) {
-            this.description = "Upload file [ " + this.filePath + " ]";
-            this.uploadFile();
+                break;
+            case Navigator.CLOSE_WINDOW:
+                this.description = "Close window ";
+                final String currentWindow = ExecutionManager.getMonkeyDriver().getWindowHandle();
+                final Set<String> AllWindows = ExecutionManager.getMonkeyDriver().getWindowHandles();
+                for (final String win : AllWindows) {
+                    if (win.equals(currentWindow)) {
+                        ExecutionManager.getMonkeyDriver().switchTo().window(currentWindow).close();
+                    }
+                }
+                break;
+            case Navigator.GET_HTTP_REQUEST_HEADER:
+                this.description = "Get http request header";
+                throw (new MonkeyException(ExceptionCode.NOT_SUPPORTED_METHOD, Navigator.GET_HTTP_REQUEST_HEADER));
+            case Navigator.GET_RESPONSE_CODE:
+                this.description = "Get response";
+                throw (new MonkeyException(ExceptionCode.NOT_SUPPORTED_METHOD, Navigator.GET_HTTP_REQUEST_HEADER));
+            case Navigator.GO_BACK:
+                this.description = "Go back";
+                ExecutionManager.getMonkeyDriver().navigate().back();
+                break;
+            case Navigator.REFRESH_PAGE:
+                this.description = "refresh page";
+                ExecutionManager.getMonkeyDriver().navigate().refresh();
+                break;
+            case Navigator.UPLOAD_FILE:
+                this.description = "Upload file [ " + this.filePath + " ]";
+                this.uploadFile();
+                break;
         }
-
     }
 
     /**

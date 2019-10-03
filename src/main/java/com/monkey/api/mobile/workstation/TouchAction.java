@@ -6,11 +6,6 @@ import com.monkey.core.task.mobile.workstation.TouchTask;
 
 public class TouchAction {
 
-    private static final double SWIPE_WIDTH_RIGHT_PERCENT_DEFAULT = 0.9;
-    private static final double SWIPE_WIDTH_LEFT_PERCENT_DEFAULT = 0.1;
-    private static final double SCROLL_HEIGHT_DOWN_PERCENT_DEFAULT = 0.6;
-    private static final double SCROLL_HEIGHT_UP_PERCENT_DEFAULT = 0.3;
-
     public static final String SWIPE_TO_TEXT = "swipeToText";
     public static final String SCROLL_TO_TEXT = "scrollToText";
     public static final String SCROLL_TO_TEXT_IN_FIRST_POSITION = "scrollToTextInFirstPosition";
@@ -18,11 +13,11 @@ public class TouchAction {
     public static final String SWIPE = "swipe";
     public static final String SCROLL = "scroll";
     public static final String TAP = "tap";
+    private static final double SWIPE_WIDTH_RIGHT_PERCENT_DEFAULT = 0.9;
+    private static final double SWIPE_WIDTH_LEFT_PERCENT_DEFAULT = 0.1;
+    private static final double SCROLL_HEIGHT_DOWN_PERCENT_DEFAULT = 0.6;
+    private static final double SCROLL_HEIGHT_UP_PERCENT_DEFAULT = 0.3;
     // public static final String iOSSCROLL_TO_TEXT = "iOSscroll";
-
-    public enum directionE {
-        UP, DOWN
-    }
 
     public static void tap(final int tapCount, final int x, final int y, final int duration) {
         final TouchTask touchTask = new TouchTask();
@@ -91,16 +86,6 @@ public class TouchAction {
 
     }
 
-    /*
-     * public static boolean iOSscrollToText(String text, boolean exitOnError) {
-     * TouchTask touchTask = new TouchTask();
-     * touchTask.setName(iOSSCROLL_TO_TEXT); touchTask.setText(text);
-     * touchTask.setExitOnError(exitOnError); touchTask.runTask(); return
-     * touchTask.isElementFound();
-     *
-     * }
-     */
-
     public static void scrollToTextInFirstPosition(final MonkeyWebElement element, final String text,
                                                    final double screenHeightStartPercent, final double screenHeightEndPercent, final int duration, final int maxScroll,
                                                    final boolean exitOnError) {
@@ -116,6 +101,16 @@ public class TouchAction {
         touchTask.runTask();
 
     }
+
+    /*
+     * public static boolean iOSscrollToText(String text, boolean exitOnError) {
+     * TouchTask touchTask = new TouchTask();
+     * touchTask.setName(iOSSCROLL_TO_TEXT); touchTask.setText(text);
+     * touchTask.setExitOnError(exitOnError); touchTask.runTask(); return
+     * touchTask.isElementFound();
+     *
+     * }
+     */
 
     public static void scrollDownToTextInFirstPosition(final MonkeyWebElement element, final String text, final int maxScroll,
                                                        final boolean exitOnError) {
@@ -241,6 +236,10 @@ public class TouchAction {
         touchTask.setDuration(duration);
         touchTask.setInitElement(false);
         touchTask.runTask();
+    }
+
+    public enum directionE {
+        UP, DOWN
     }
 
 }

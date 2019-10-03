@@ -1,4 +1,3 @@
-
 package com.monkey.api.web.browser;
 
 import com.monkey.core.task.web.browser.CookiesTask;

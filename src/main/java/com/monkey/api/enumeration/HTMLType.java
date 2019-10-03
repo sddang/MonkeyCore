@@ -1,5 +1,3 @@
-
-
 package com.monkey.api.enumeration;
 
 /**

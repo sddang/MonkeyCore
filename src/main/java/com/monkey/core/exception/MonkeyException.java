@@ -1,5 +1,3 @@
-
-
 package com.monkey.core.exception;
 
 import org.testng.Assert;

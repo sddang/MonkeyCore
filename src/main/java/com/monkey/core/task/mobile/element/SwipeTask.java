@@ -1,12 +1,9 @@
 package com.monkey.core.task.mobile.element;
 
-import com.monkey.api.page.MonkeyMobileElement;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.ActionOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class SwipeTask extends AbstractTask {
@@ -36,7 +33,7 @@ public class SwipeTask extends AbstractTask {
 
     @Override
     public String getDescription() {
-        return "Swipe on element [ " + this.getElement() + "]";
+        return "Swipe on element \n[ " + this.getElement() + " ]";
     }
 
     @Override
@@ -61,7 +58,6 @@ public class SwipeTask extends AbstractTask {
 //    }
 
     /**
-     *
      * @param startX
      * @param startY
      * @param endX

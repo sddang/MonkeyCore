@@ -1,15 +1,10 @@
-
-
 package com.monkey.core.task.mobile.element;
-
-import org.apache.commons.lang3.StringUtils;
-import org.openqa.selenium.WebElement;
 
 import com.monkey.api.MonkeyExecutionContext;
 import com.monkey.core.task.AbstractTask;
-import com.monkey.services.data.DataMapper;
-
 import io.appium.java_client.ios.IOSElement;
+import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.WebElement;
 
 
 public class TypeTask extends AbstractTask {
@@ -17,6 +12,7 @@ public class TypeTask extends AbstractTask {
     boolean clean = true;
     boolean iosSendKey;
     private String description;
+    private String inputValue;
 
     /**
      * Execute the type action of the elements using the selenum implementation
@@ -25,15 +21,8 @@ public class TypeTask extends AbstractTask {
 
     @Override
     public void execute() {
-        final String value = DataMapper.getSessionMapper().mapData(this.getElement().getInputValue());
-        final WebElement element = this.getElement().getWebElement();
-        this.description = "Type data :\"" + value + "\" in the input [ " + this.getElement() + " ]";
-        if (StringUtils.isBlank(value))
-            return;
-
-        if (this.clean)
-            this.clean(element);
-        this.type(element, value, this.iosSendKey);
+//        final String value = DataMapper.getSessionMapper().mapData(this.getElement().getInputValue());
+        this.type();
     }
 
     private void clean(final WebElement element) {
@@ -44,13 +33,21 @@ public class TypeTask extends AbstractTask {
         }
     }
 
-    private void type(final WebElement element, final String value, final boolean iosSendKey) {
-        if (MonkeyExecutionContext.isAndroid() || iosSendKey) {
-            element.sendKeys(value);
+    private void type() {
+        WebElement element = this.getElement().getWebElement();
+        this.description = "Type data :\"" + this.inputValue + "\" in the input \n[ " + this.getElement() + " ]";
+        if (StringUtils.isBlank(this.inputValue)) {
+            return;
+        }
+        if (this.clean) {
+            this.clean(element);
+        }
+        if (MonkeyExecutionContext.isAndroid()) {
+            element.sendKeys(this.inputValue);
         } else {
             final IOSElement iOSelement = (IOSElement) element;
             iOSelement.click();
-            iOSelement.setValue(value);
+            iOSelement.setValue(this.inputValue);
         }
     }
 
@@ -61,6 +58,11 @@ public class TypeTask extends AbstractTask {
 
     public TypeTask setIosSendKey(final boolean iosSendKey) {
         this.iosSendKey = iosSendKey;
+        return this;
+    }
+
+    public TypeTask setInputValue(String value) {
+        this.inputValue = value;
         return this;
     }
 

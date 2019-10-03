@@ -1,14 +1,13 @@
 package com.monkey.core.utils;
 
+import com.monkey.core.exception.ExceptionCode;
+import com.monkey.core.exception.MonkeyException;
+import org.testng.Assert;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
-import com.monkey.core.exception.ExceptionCode;
-import com.monkey.core.exception.MonkeyException;
-
-import org.testng.Assert;
 
 public class Utils {
 

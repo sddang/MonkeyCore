@@ -1,12 +1,12 @@
 package com.monkey.api.mobile;
 
-import java.util.Set;
-
 import com.monkey.api.MonkeyExecutionContext;
 import com.monkey.api.MonkeyLogger;
 import com.monkey.api.Wait;
 import com.monkey.api.enumeration.LogLevel;
 import com.monkey.api.page.MonkeyWebElement;
+
+import java.util.Set;
 
 public class SwitchContext {
 

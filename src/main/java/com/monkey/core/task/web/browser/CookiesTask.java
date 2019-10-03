@@ -1,12 +1,9 @@
-
-
 package com.monkey.core.task.web.browser;
-
-import org.openqa.selenium.Cookie;
 
 import com.monkey.api.web.browser.Cookies;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
+import org.openqa.selenium.Cookie;
 
 public class CookiesTask extends AbstractTask {
 
@@ -27,7 +24,7 @@ public class CookiesTask extends AbstractTask {
             this.description = "Delete all the cookies";
             ExecutionManager.getMonkeyDriver().manage().deleteAllCookies();
         } else if (this.name.equals(Cookies.REMOVE_COOKIES)) {
-            this.description = "Remove the cooky << " + this.cookyName + " >>";
+            this.description = "Remove the cookie << " + this.cookyName + " >>";
             ExecutionManager.getMonkeyDriver().manage().deleteCookieNamed(this.cookyName);
         }
 

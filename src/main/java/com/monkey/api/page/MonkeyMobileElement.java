@@ -1,13 +1,7 @@
-
-
 package com.monkey.api.page;
 
 import com.monkey.api.enumeration.Selector;
-import com.monkey.core.task.mobile.element.CheckTask;
-import com.monkey.core.task.mobile.element.ClearTask;
-import com.monkey.core.task.mobile.element.ClickTask;
-import com.monkey.core.task.mobile.element.SwipeTask;
-import com.monkey.core.task.mobile.element.TypeTask;
+import com.monkey.core.task.mobile.element.*;
 
 /**
  * This class is the structure that will encapsulate the HTML components of the
@@ -22,25 +16,11 @@ public class MonkeyMobileElement extends MonkeyWebElement {
     /**
      * Constructor with all fields of the element
      *
-     * @param identifier the key identifier of the element
-     * @param selector   the way to find the element by id, name, xpath ...
-     * @param tagName    the HTML tag name
-     * @param inputValu  the value to be set to the element
+     * @param identifier
+     * @param selector
      */
     public MonkeyMobileElement(final String identifier, final Selector selector) {
         super(identifier, selector);
-    }
-
-    /**
-     * Constructor with all fields of the element
-     *
-     * @param identifier the key identifier of the element
-     * @param selector   the way to find the element by id, name, xpath ...
-     * @param tagName    the HTML tag name
-     * @param inputValu  the value to be set to the element
-     */
-    public MonkeyMobileElement(final String identifier, final Selector selector, final String inputValue) {
-        super(identifier, selector, inputValue);
     }
 
     @Override
@@ -63,18 +43,18 @@ public class MonkeyMobileElement extends MonkeyWebElement {
         }
     }
 
-    @Override
-    public void type() {
-        new TypeTask().setElement(this).runTask();
-    }
+//    @Override
+//    public void type() {
+//        new TypeTask().setElement(this).runTask();
+//    }
 
     @Override
-    public void type(final boolean iosSendKey) {
+    public void type(String value) {
         final TypeTask type = new TypeTask();
         type.setElement(this);
-        type.setIosSendKey(iosSendKey);
+        type.setInputValue(value);
+//        type.setIosSendKey(iosSendKey);
         type.runTask();
-//		new TypeTask().setIosSendKey(iosSendKey).setElement(this).runTask();
     }
 
     @Override

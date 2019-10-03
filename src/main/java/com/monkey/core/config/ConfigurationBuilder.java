@@ -1,12 +1,8 @@
-
-
 package com.monkey.core.config;
 
 /**
  * The package used to build the configurations
  */
-
-import java.io.IOException;
 
 import com.monkey.core.enumeration.Protocol;
 import com.monkey.core.exception.ExceptionCode;
@@ -16,6 +12,8 @@ import com.monkey.core.utils.MonkeyConstants;
 import com.monkey.impl.config.MonkeyAppiumConfig;
 import com.monkey.impl.config.MonkeySeleniumConfig;
 import com.monkey.services.log.LogTrackerEvent;
+
+import java.io.IOException;
 
 
 public class ConfigurationBuilder {

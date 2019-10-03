@@ -1,12 +1,10 @@
-
-
 package com.monkey.api.web.browser;
-
-import java.util.Set;
 
 import com.monkey.api.page.MonkeyWebElement;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.web.browser.WindowTask;
+
+import java.util.Set;
 
 
 /**
@@ -133,7 +131,7 @@ public class Window {
         final WindowTask windowTask = new WindowTask();
         windowTask.setName(Window.SET_SIZE);
         windowTask.setLarge(large);
-        windowTask.setHight(hight);
+        windowTask.setHeight(hight);
         windowTask.runTask();
     }
 

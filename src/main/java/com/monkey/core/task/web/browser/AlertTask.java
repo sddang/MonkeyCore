@@ -1,13 +1,10 @@
-
-
 package com.monkey.core.task.web.browser;
-
-import org.openqa.selenium.Alert;
 
 import com.monkey.api.Wait;
 import com.monkey.api.web.browser.Alerts;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
+import org.openqa.selenium.Alert;
 
 public class AlertTask extends AbstractTask {
 

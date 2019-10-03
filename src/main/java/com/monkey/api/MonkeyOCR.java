@@ -1,23 +1,21 @@
 package com.monkey.api;
 
-import java.awt.geom.Point2D;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.imageio.ImageIO;
-
+import com.monkey.core.driver.MonkeyDriver;
+import com.monkey.core.session.ExecutionManager;
+import com.monkey.core.utils.Utils;
 import org.openqa.selenium.OutputType;
 import org.sikuli.basics.Debug;
 import org.sikuli.basics.Settings;
 import org.sikuli.script.Finder;
 import org.sikuli.script.Match;
 
-import com.monkey.core.driver.MonkeyDriver;
-import com.monkey.core.session.ExecutionManager;
-import com.monkey.core.utils.Utils;
+import javax.imageio.ImageIO;
+import java.awt.geom.Point2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MonkeyOCR {
 

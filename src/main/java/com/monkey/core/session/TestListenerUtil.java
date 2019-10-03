@@ -1,17 +1,16 @@
 package com.monkey.core.session;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
+import com.monkey.services.log.LogTrackerEvent;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.internal.TestResult;
 
-import com.monkey.services.log.LogTrackerEvent;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class TestListenerUtil {
 

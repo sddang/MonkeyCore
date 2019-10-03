@@ -1,5 +1,3 @@
-
-
 package com.monkey.core.task.web.element;
 
 import com.monkey.api.Wait;
@@ -17,7 +15,7 @@ public class RadioCheckTask extends AbstractTask {
 
     @Override
     public String getDescription() {
-        return "Check the radio << " + this.getElement() + " >>";
+        return "Check the radio \n[ " + this.getElement() + " ]";
     }
 
     @Override

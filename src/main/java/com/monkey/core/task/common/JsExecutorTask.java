@@ -1,12 +1,9 @@
-
-
 package com.monkey.core.task.common;
-
-import org.openqa.selenium.JavascriptExecutor;
 
 import com.monkey.api.Wait;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class JsExecutorTask extends AbstractTask {
 

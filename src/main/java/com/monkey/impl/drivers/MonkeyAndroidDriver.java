@@ -1,31 +1,28 @@
 package com.monkey.impl.drivers;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.DeviceRotation;
-import org.openqa.selenium.WebElement;
-
 import com.monkey.core.driver.MonkeyDriver;
 import com.monkey.services.data.DataMapper;
 import com.monkey.services.documentation.DocumentObject;
 import com.relevantcodes.extentreports.ExtentTest;
-
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.DeviceRotation;
+import org.openqa.selenium.WebElement;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MonkeyAndroidDriver extends AndroidDriver<WebElement> implements MonkeyDriver {
 
-    public MonkeyAndroidDriver(final URL remoteAddress, final Capabilities desiredCapabilities) {
-        super(remoteAddress, desiredCapabilities);
-    }
-
+    private final List<DocumentObject> taskDocumentationList = new ArrayList<DocumentObject>();
     private DataMapper dataMapper;
     private String testFileName;
     private String language;
-    private final List<DocumentObject> taskDocumentationList = new ArrayList<DocumentObject>();
     private ExtentTest testReport;
+    public MonkeyAndroidDriver(final URL remoteAddress, final Capabilities desiredCapabilities) {
+        super(remoteAddress, desiredCapabilities);
+    }
 
     public DataMapper getDataMapper() {
         return this.dataMapper;

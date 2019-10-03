@@ -1,11 +1,9 @@
-
 package com.monkey.impl.config;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
+import com.monkey.core.config.MonkeyConfig;
+import com.monkey.core.enumeration.SupportedBrowsers;
+import com.monkey.core.exception.ExceptionCode;
+import com.monkey.core.exception.MonkeyException;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.Proxy;
@@ -16,10 +14,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import com.monkey.core.config.MonkeyConfig;
-import com.monkey.core.enumeration.SupportedBrowsers;
-import com.monkey.core.exception.ExceptionCode;
-import com.monkey.core.exception.MonkeyException;
+import java.util.Arrays;
+import java.util.Collections;
 
 
 public class MonkeySeleniumConfig extends MonkeyConfig {
@@ -164,7 +160,7 @@ public class MonkeySeleniumConfig extends MonkeyConfig {
                 options.addArguments("--allow-insecure-localhost=yes");
                 options.addArguments("--ignore-urlfetcher-cert-requests=yes");
                 options.addArguments("disable-infobars");
-               options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
+                options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
 //			    options.addArguments("--test-type");
 //			    options.addArguments("--allow-running-insecure-content");
 //              options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});

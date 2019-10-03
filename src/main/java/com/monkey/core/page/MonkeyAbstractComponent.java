@@ -1,11 +1,9 @@
-
-
 package com.monkey.core.page;
-
-import java.util.Set;
 
 import com.monkey.api.page.MonkeyWebComponent;
 import com.monkey.api.page.MonkeyWebElement;
+
+import java.util.Set;
 
 
 public abstract class MonkeyAbstractComponent {

@@ -1,15 +1,5 @@
 package com.monkey.core.task.mobile.workstation;
 
-import java.time.Duration;
-import java.util.List;
-
-import io.appium.java_client.touch.TapOptions;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
-import org.apache.commons.lang3.StringUtils;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
-
 import com.monkey.api.Wait;
 import com.monkey.api.mobile.Driver;
 import com.monkey.api.mobile.workstation.TouchAction;
@@ -17,8 +7,16 @@ import com.monkey.core.exception.ExceptionCode;
 import com.monkey.core.exception.MonkeyException;
 import com.monkey.core.session.ExecutionManager;
 import com.monkey.core.task.AbstractTask;
-
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.touch.TapOptions;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
+import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebElement;
+
+import java.time.Duration;
+import java.util.List;
 
 public class TouchTask extends AbstractTask {
 
@@ -170,7 +168,7 @@ public class TouchTask extends AbstractTask {
                 .tap(TapOptions
                         .tapOptions()
                         .withTapsCount(tapCount)
-                        .withPosition(PointOption.point(condinateX,condinatorY)))
+                        .withPosition(PointOption.point(condinateX, condinatorY)))
                 .perform();
     }
 
@@ -287,7 +285,6 @@ public class TouchTask extends AbstractTask {
     }
 
     /**
-     *
      * @param startX
      * @param startY
      * @param endX
@@ -350,12 +347,12 @@ public class TouchTask extends AbstractTask {
         this.duration = duration >= 100 && duration < 1000 ? duration : duration * 1000;
     }
 
-    public void setElementFound(final boolean elementFound) {
-        this.elementFound = elementFound;
-    }
-
     public boolean isElementFound() {
         return this.elementFound;
+    }
+
+    public void setElementFound(final boolean elementFound) {
+        this.elementFound = elementFound;
     }
 
 }

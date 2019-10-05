@@ -24,50 +24,50 @@ public class LocalisationHelper {
      * Search html elements with all of the supported ways and return the
      * selenium element of type WebElement
      *
-     * @param key
+     * @param identifier
      * @param selector
      * @return
      */
 
-    public static WebElement findWebElement(String key, Selector selector, String variablename,
-                                            boolean noError, boolean nomonkeyException, final long timeOut) throws IllegalArgumentException, MonkeyException {
-        if (key == null) {
-            throw new IllegalArgumentException("Key shouldn't be null!!! No field can't be found");
+    public static WebElement findWebElement(String identifier, Selector selector, String variableName,
+                                            boolean noError, boolean noMonkeyException, final long timeOut) throws IllegalArgumentException, MonkeyException {
+        if (identifier == null) {
+            throw new IllegalArgumentException("Identifier shouldn't be null!!! No field can't be found");
         }
 
         final StringBuffer message = new StringBuffer(300);
-        message.append(" << varName : ").append(variablename).append(" || selector : ").append(selector)
-                .append(" ||  key : ").append(key).append(" >> \n Selenium error  :\n ");
+        message.append(" << varName : ").append(variableName).append(" || selector : ").append(selector)
+                .append(" ||  identifier : ").append(identifier).append(" >> \n Selenium error  :\n ");
         WebElement element = null;
         try {
             switch (selector) {
                 case name:
                     element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfElementLocated(By.name(key)));
+                            .until(ExpectedConditions.presenceOfElementLocated(By.name(identifier)));
                     break;
                 case id:
                     element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfElementLocated(By.id(key)));
+                            .until(ExpectedConditions.presenceOfElementLocated(By.id(identifier)));
                     break;
                 case className:
                     element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfElementLocated(By.className(key)));
+                            .until(ExpectedConditions.presenceOfElementLocated(By.className(identifier)));
                     break;
                 case partialLinkText:
                     element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfElementLocated(By.linkText(key)));
+                            .until(ExpectedConditions.presenceOfElementLocated(By.linkText(identifier)));
                     break;
                 case xpath:
                     element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfElementLocated(By.xpath(key)));
+                            .until(ExpectedConditions.presenceOfElementLocated(By.xpath(identifier)));
                     break;
                 case cssSelector:
                     element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(key)));
+                            .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(identifier)));
                     break;
                 case tagName:
                     element = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfElementLocated(By.tagName(key)));
+                            .until(ExpectedConditions.presenceOfElementLocated(By.tagName(identifier)));
                     break;
             }
             return element;
@@ -76,7 +76,7 @@ public class LocalisationHelper {
             if (noError) {
                 return null;
             } else {
-                if (nomonkeyException) {
+                if (noMonkeyException) {
                     throw e;
                 } else {
                     throw new MonkeyException(ExceptionCode.FIELD_NOT_FOUND_EXCEPTION,
@@ -86,29 +86,29 @@ public class LocalisationHelper {
         }
     }
 
-    public static WebElement findWebElement(String key, Selector selector, String variablename,
-                                            boolean noError, boolean nomonkeyException) throws IllegalArgumentException, MonkeyException {
+    public static WebElement findWebElement(String identifier, Selector selector, String variableName,
+                                            boolean noError, boolean noMonkeyException) throws IllegalArgumentException, MonkeyException {
         final long timeOut = ExecutionManager.getConfiguration().getTimeOut();
-        return LocalisationHelper.findWebElement(key, selector, variablename, noError, nomonkeyException, timeOut);
+        return LocalisationHelper.findWebElement(identifier, selector, variableName, noError, noMonkeyException, timeOut);
     }
 
-    public static WebElement findWebElement(String key, Selector selector, String variablename,
+    public static WebElement findWebElement(String identifier, Selector selector, String variableName,
                                             boolean noError) throws IllegalArgumentException, MonkeyException {
-        return LocalisationHelper.findWebElement(key, selector, variablename, noError, false);
+        return LocalisationHelper.findWebElement(identifier, selector, variableName, noError, false);
     }
 
-    public static WebElement findWebElement(String key, Selector selector, String variablename)
+    public static WebElement findWebElement(String identifier, Selector selector, String variableName)
             throws IllegalArgumentException, MonkeyException {
-        return LocalisationHelper.findWebElement(key, selector, variablename, false);
+        return LocalisationHelper.findWebElement(identifier, selector, variableName, false);
     }
 
-    public static List<WebElement> findElements(String key, Selector selector, String variablename) {
-        if (key == null) {
+    public static List<WebElement> findElements(String identifier, Selector selector, String variableName) {
+        if (identifier == null) {
             throw new IllegalArgumentException("Key shouldn't be null!!! No field can't be found");
         }
 
         final StringBuffer message = new StringBuffer(300);
-        message.append(" << selector : ").append(selector).append(" ||  key : ").append(key)
+        message.append(" << selector : ").append(selector).append(" ||  identifier : ").append(identifier)
                 .append(" >> \n Selenium error  :\n ");
         List<WebElement> elements = null;
         final long timeOut = ExecutionManager.getConfiguration().getTimeOut();
@@ -116,31 +116,31 @@ public class LocalisationHelper {
             switch (selector) {
                 case name:
                     elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.name(key)));
+                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.name(identifier)));
                     break;
                 case id:
                     elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id(key)));
+                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id(identifier)));
                     break;
                 case className:
                     elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className(key)));
+                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className(identifier)));
                     break;
                 case partialLinkText:
                     elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.linkText(key)));
+                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.linkText(identifier)));
                     break;
                 case xpath:
                     elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(key)));
+                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(identifier)));
                     break;
                 case cssSelector:
                     elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(key)));
+                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(identifier)));
                     break;
                 case tagName:
                     elements = (new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(timeOut)))
-                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.tagName(key)));
+                            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.tagName(identifier)));
                     break;
             }
             return elements;
@@ -156,9 +156,9 @@ public class LocalisationHelper {
      * @param testElement
      * @return
      */
-    public static boolean isElementenabled(final MonkeyWebElement testElement) {
+    public static boolean isElementEnabled(final MonkeyWebElement testElement) {
         final WebElement element = testElement.getWebElement();
-        return LocalisationHelper.isElementenabled(element);
+        return LocalisationHelper.isElementEnabled(element);
     }
 
     /**
@@ -168,7 +168,7 @@ public class LocalisationHelper {
      * @param element
      * @return
      */
-    public static boolean isElementenabled(final WebElement element) {
+    public static boolean isElementEnabled(final WebElement element) {
         return element.isDisplayed() && element.isEnabled();
     }
 
@@ -225,23 +225,23 @@ public class LocalisationHelper {
      * Return the attribute value of the given attribute of an element
      *
      * @param testElement
-     * @param attribut
+     * @param attribute
      * @return
      */
-    public static String getElementAttribut(final MonkeyWebElement testElement, final String attribut) {
+    public static String getElementAttribute(final MonkeyWebElement testElement, final String attribute) {
         final WebElement element = testElement.getWebElement();
-        return LocalisationHelper.getElementAttribut(element, attribut);
+        return LocalisationHelper.getElementAttribute(element, attribute);
     }
 
     /**
-     * Return the attribute value of the element's attribut
+     * Return the attribute value of the element's attribute
      *
      * @param element
      * @param attribut
      * @return
      */
-    public static String getElementAttribut(final WebElement element, final String attribut) {
-        return element.getAttribute(attribut);
+    public static String getElementAttribute(final WebElement element, final String attribute) {
+        return element.getAttribute(attribute);
     }
 
     /**
@@ -271,9 +271,14 @@ public class LocalisationHelper {
      * @return
      */
     public static boolean isElementPresent(final MonkeyWebElement testElement) {
-        final WebElement element = LocalisationHelper.findWebElement(testElement.getIdentifier(), testElement.getSelector(),
-                testElement.getVariableName(), true, false, 5);
-        return (element != null) && LocalisationHelper.isElementenabled(element);
+        WebElement element = null;
+        if(testElement.getWebElement() == null) {
+            element = LocalisationHelper.findWebElement(testElement.getIdentifier(), testElement.getSelector(),
+                    testElement.getVariableName(), true, false, 5);
+        }else {
+            element = testElement.getWebElement();
+        }
+        return (element != null) && LocalisationHelper.isElementEnabled(element);
     }
 
     /**

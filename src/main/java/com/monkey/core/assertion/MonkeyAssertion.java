@@ -83,7 +83,7 @@ public class MonkeyAssertion {
     public static void elementAttributeExpectedLength(final MonkeyWebElement element, final String attribute, final String expected,
                                                       final String logFunctional, final boolean exitOnError) {
         final int lengthExpected = Integer.parseInt(DataMapper.getSessionMapper().mapData(expected));
-        final String attr = LocalisationHelper.getElementAttribut(element, attribute);
+        final String attr = LocalisationHelper.getElementAttribute(element, attribute);
         final int textLenght = attr.length();
 
         final boolean testIsOK = lengthExpected == textLenght;
@@ -113,7 +113,7 @@ public class MonkeyAssertion {
     public static void equalsToElementAttribut(final MonkeyWebElement element, final String attribute, String expected,
                                                final String logFunctional, final boolean exitOnError) {
         expected = DataMapper.getSessionMapper().mapData(expected);
-        final String attr = LocalisationHelper.getElementAttribut(element, attribute);
+        final String attr = LocalisationHelper.getElementAttribute(element, attribute);
 
         final boolean testIsOK = attr != null && attr.equals(expected);
 
@@ -129,7 +129,7 @@ public class MonkeyAssertion {
     public static void notEqualsToElementAttribut(final MonkeyWebElement element, final String attribut, String expected,
                                                   final String logFunctional, final boolean exitOnError) {
         expected = DataMapper.getSessionMapper().mapData(expected);
-        final String attr = LocalisationHelper.getElementAttribut(element, attribut);
+        final String attr = LocalisationHelper.getElementAttribute(element, attribut);
         final boolean testIsOK = attr != null && !attr.equals(expected);
 
         final String logTracker = "Verify that the given attribute '" + attribut + ": " + expected

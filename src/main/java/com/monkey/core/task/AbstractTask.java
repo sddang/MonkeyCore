@@ -36,7 +36,7 @@ public abstract class AbstractTask {
      */
     private void beforeRunningTask() {
         if (this.initElement) {
-            if (this.element != null) {
+            if (this.element != null && this.element.getWebElement() == null) {
                 final boolean allowEnabledElement = this.allowEnabledElement();
                 this.element.initializeWebElement(allowEnabledElement);
             }

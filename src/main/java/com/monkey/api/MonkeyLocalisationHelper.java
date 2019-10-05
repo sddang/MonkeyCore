@@ -15,7 +15,7 @@ public class MonkeyLocalisationHelper extends LocalisationHelper {
     public static boolean isElementPresent(final MonkeyWebElement testElement, final int timeOut) {
         final WebElement element = LocalisationHelper.findWebElement(testElement.getIdentifier(), testElement.getSelector(),
                 testElement.getVariableName(), true, false, timeOut);
-        return (element != null) && LocalisationHelper.isElementenabled(element);
+        return (element != null) && LocalisationHelper.isElementEnabled(element);
     }
 
 }

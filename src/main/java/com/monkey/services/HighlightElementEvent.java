@@ -12,7 +12,7 @@ public class HighlightElementEvent {
     public static void highlightElement(final MonkeyWebElement element) {
         if (ExecutionManager.getConfiguration().getDriverType().equals(DriverType.webDriver)) {
             if (ExecutionManager.getConfiguration().isHighlightActiveElement() && element != null) {
-                final String styleValue = LocalisationHelper.getElementAttribut(element, "style");
+                final String styleValue = LocalisationHelper.getElementAttribute(element, "style");
                 for (int i = 0; i < 2; i++) {
                     HighlightElementEvent.decorateElement(element);
                     Wait.implicitWait(10);

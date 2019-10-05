@@ -42,7 +42,7 @@ public class Assertion extends Assert {
      */
     public static void assertEqualsWithUpperCase(final MonkeyWebElement element, String expectedValue) {
         expectedValue = DataMapper.getSessionMapper().mapData(expectedValue);
-        final String elementValue = LocalisationHelper.getElementAttribut(element, "value");
+        final String elementValue = LocalisationHelper.getElementAttribute(element, "value");
 
         MonkeyAssertion.equals(expectedValue.toUpperCase(), elementValue.toUpperCase(),
                 expectedValue.toUpperCase() + " is not equal to " + elementValue.toUpperCase(), true);
@@ -57,7 +57,7 @@ public class Assertion extends Assert {
     public static void assertEqualsWithUpperCase(final MonkeyWebElement element, String expectedValue,
                                                  final String FunctionalLog) {
         expectedValue = DataMapper.getSessionMapper().mapData(expectedValue);
-        final String elementValue = LocalisationHelper.getElementAttribut(element, "value");
+        final String elementValue = LocalisationHelper.getElementAttribute(element, "value");
         MonkeyAssertion.equals(expectedValue.toUpperCase(), elementValue.toUpperCase(), FunctionalLog, true);
     }
 
@@ -70,7 +70,7 @@ public class Assertion extends Assert {
     public static void validateEqualsWithUpperCase(final MonkeyWebElement element, String expectedValue,
                                                    final String FunctionalLog) {
         expectedValue = DataMapper.getSessionMapper().mapData(expectedValue);
-        final String elementValue = LocalisationHelper.getElementAttribut(element, "value");
+        final String elementValue = LocalisationHelper.getElementAttribute(element, "value");
 
         MonkeyAssertion.equals(expectedValue.toUpperCase(), elementValue.toUpperCase(),
                 expectedValue.toUpperCase() + " is not equal to " + elementValue.toUpperCase(), false);

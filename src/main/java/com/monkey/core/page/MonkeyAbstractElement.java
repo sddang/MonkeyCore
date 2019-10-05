@@ -50,9 +50,9 @@ public abstract class MonkeyAbstractElement {
         if (timeOut > 20) {
             timeOut = 20;
         }
-        final WebElement element = LocalisationHelper.findWebElement(this.getIdentifier(), this.getSelector(), this.getVariableName(), false, false, timeOut);
+        WebElement element = LocalisationHelper.findWebElement(this.getIdentifier(), this.getSelector(), this.getVariableName(), false, false, timeOut);
 
-        if (!allowDisabledElements && !LocalisationHelper.isElementenabled(element)) {
+        if (!allowDisabledElements && !LocalisationHelper.isElementEnabled(element)) {
             throw new MonkeyException(ExceptionCode.DISABLED_ELEMENT_FIRE_EVENT_ERROR, toString());
         }
         this.setWebElement(element);

@@ -85,6 +85,7 @@ public class MouseTask extends AbstractTask {
                             break;
                     }
                     Wait.implicitWait(1);
+                    break;
                 } catch (final Exception e) {
                     i = i + 1;
                     if (i == 1 || i == 2) {

@@ -22,7 +22,7 @@ public class MonkeyExecutionContext {
     }
 
     public static boolean isTabletMode() {
-        return MonkeyExecutionContext.getBrowserMode().equals(BrowserMode.tablette.name());
+        return MonkeyExecutionContext.getBrowserMode().equals(BrowserMode.tablet.name());
     }
 
     public static boolean isDesktopMode() {

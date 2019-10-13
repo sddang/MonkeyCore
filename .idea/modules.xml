@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MonkeyCore.iml" filepath="$PROJECT_DIR$/.idea/MonkeyCore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/monkey.core.iml" filepath="$PROJECT_DIR$/monkey.core.iml" />
     </modules>
   </component>
 </project>

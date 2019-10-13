@@ -3,7 +3,7 @@ package com.monkey.core.enumeration;
 import java.util.Random;
 
 public enum SupportedLanguage {
-    fr, en, vn;
+    fr, gb, vn;
 
     private static SupportedLanguage defaultLanguage;
 

@@ -54,7 +54,7 @@ public class NavigationTask extends AbstractTask {
                             Window.setSize(400, 800);
                         }
                         break;
-                    case tablette:
+                    case tablet:
                         // resolution ipad-protrait
                         Window.setSize(1024, 800);
                         break;

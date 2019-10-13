@@ -34,7 +34,7 @@ public class MonkeyWebPage extends MonkeyAbstractPage {
         final Field[] elements = testPage.getClass().getDeclaredFields();
         final Set<MonkeyWebElement> testElements = new HashSet<MonkeyWebElement>();
         final Set<MonkeyWebComponent> monkeyComponents = new HashSet<MonkeyWebComponent>();
-        final Set<MonkeyWebPage> testembeddedPages = new HashSet<MonkeyWebPage>();
+        final Set<MonkeyWebPage> testEmbeddedPages = new HashSet<MonkeyWebPage>();
         for (final Field element : elements) {
             if (element.getType().equals(MonkeyWebElement.class)) {
                 final WebLocator locator = element.getAnnotation(WebLocator.class);
@@ -94,14 +94,14 @@ public class MonkeyWebPage extends MonkeyAbstractPage {
                                     .getMessage());
                         }
                     }
-                    testembeddedPages.add(embeddedPage);
+                    testEmbeddedPages.add(embeddedPage);
                 }
             }
 
         }
         this.setPageElements(testElements);
         this.setPageComponents(monkeyComponents);
-        this.setEmbeddedPages(testembeddedPages);
+        this.setEmbeddedPages(testEmbeddedPages);
 
     }
 

@@ -150,7 +150,7 @@ public abstract class MonkeyConfig {
 
     protected boolean isTablette() {
         return ExecutionManager.getExecutionContext().get(SupportedVarEnv.browserMode.name())
-                .equals(BrowserMode.tablette.name());
+                .equals(BrowserMode.tablet.name());
     }
 
     protected boolean isSmartphone() {

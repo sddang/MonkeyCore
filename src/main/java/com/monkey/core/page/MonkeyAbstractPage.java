@@ -7,7 +7,7 @@ import com.monkey.api.page.MonkeyWebPage;
 import java.util.Set;
 
 
-public abstract class MonkeyAbstractPage<T> {
+public abstract class MonkeyAbstractPage {
 
     private Set<MonkeyWebElement> pageElements;
     private Set<MonkeyWebComponent> pageComponents;
@@ -54,29 +54,31 @@ public abstract class MonkeyAbstractPage<T> {
     public String toString() {
 
         final StringBuffer sb = new StringBuffer(1000);
-        sb.append("monkeyPage [ name:  ").append(getClass().getName());
-        sb.append(" , elements : \n { ");
+        sb.append("MonkeyPage [ name:  ").append(getClass().getName());
 
-        for (final MonkeyAbstractElement element : this.pageElements) {
-            sb.append(element).append(", ");
+
+        if(this.pageElements != null && this.pageComponents != null && this.embeddedPages != null) {
+            sb.append(" , elements : \n { ");
+            for (final MonkeyAbstractElement element : this.pageElements) {
+                sb.append(element).append(", ");
+            }
+            sb.deleteCharAt(sb.length() - 1);
+            sb.append(" } \n ");
+
+            sb.append(" , components : \n { ");
+            for (final MonkeyAbstractComponent element : this.pageComponents) {
+                sb.append(element).append(", ");
+            }
+            sb.deleteCharAt(sb.length() - 1);
+            sb.append(" } \n ");
+
+            sb.append(" , embeddedPages : \n { ");
+            for (final MonkeyAbstractPage element : this.embeddedPages) {
+                sb.append(element).append(", ");
+            }
+            sb.deleteCharAt(sb.length() - 1);
+            sb.append(" } \n ");
         }
-        sb.deleteCharAt(sb.length() - 1);
-        sb.append(" } \n ");
-
-        sb.append(" , components : \n { ");
-        for (final MonkeyAbstractComponent element : this.pageComponents) {
-            sb.append(element).append(", ");
-        }
-        sb.deleteCharAt(sb.length() - 1);
-        sb.append(" } \n ");
-
-        sb.append(" , embeddedPages : \n { ");
-        for (final MonkeyAbstractPage element : this.embeddedPages) {
-            sb.append(element).append(", ");
-        }
-        sb.deleteCharAt(sb.length() - 1);
-        sb.append(" } \n ");
-
         sb.append(" ]");
 
         return sb.toString();

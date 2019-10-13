@@ -60,7 +60,7 @@ public class ClickTask extends AbstractTask {
      */
     public void waitForPageToLoad() {
         try {
-            final org.openqa.selenium.support.ui.Wait<WebDriver> wait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(ExecutionManager.getConfiguration().getTimeOut()));
+            final org.openqa.selenium.support.ui.Wait<WebDriver> wait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), ExecutionManager.getConfiguration().getTimeOut());//Duration.ofSeconds(ExecutionManager.getConfiguration().getTimeOut()));
             final ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
                 @Override
                 public Boolean apply(final WebDriver driver) {

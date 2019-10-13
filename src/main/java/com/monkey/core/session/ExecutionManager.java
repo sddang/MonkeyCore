@@ -30,7 +30,7 @@ import java.util.Map;
 
 
 public class ExecutionManager implements ISuiteListener {
-    private static final ThreadLocal<MonkeyDriver> sessionDriver = new InheritableThreadLocal<MonkeyDriver>();
+    private static ThreadLocal<MonkeyDriver> sessionDriver = new InheritableThreadLocal<MonkeyDriver>();
     public static Hub hub;
     public static SelfRegisteringRemote node;
     public static boolean isFirstLaunch;
@@ -49,7 +49,7 @@ public class ExecutionManager implements ISuiteListener {
      */
 
     public static MonkeyDriver getMonkeyDriver() {
-        if (ExecutionManager.sessionDriver.get() == null) {
+        if (sessionDriver.get() == null) {
             throw new MonkeyException(ExceptionCode.SESSION_COULD_NOT_START,
                     "Driver is not instantiated yet, there is a problem some where");
         }
@@ -66,7 +66,7 @@ public class ExecutionManager implements ISuiteListener {
      *
      * @param driver
      */
-    public static void put(final MonkeyDriver driver) {
+    public static void put(MonkeyDriver driver) {
         ExecutionManager.sessionDriver.set(driver);
     }
 
@@ -100,7 +100,7 @@ public class ExecutionManager implements ISuiteListener {
         if (language == null || language.equals("")) {
             LogTrackerEvent.trace(This.class.getName(),
                     "Warning :  Variable <language> not set in launch configuration. \nMonkey selects default <language> = <en>");
-            language = SupportedLanguage.en.name();
+            language = SupportedLanguage.gb.name();
         }
         SupportedLanguage.setDefaultLanguage(SupportedLanguage.valueOf(language));
 

@@ -56,7 +56,7 @@ public class WaitTask extends AbstractTask {
                     // limit the timeOut to the configured timeout
                     this.timeOut = configuredTimeOut;
                 }
-                final WebDriverWait wwait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(this.timeOut));
+                final WebDriverWait wwait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), ExecutionManager.getConfiguration().getTimeOut());//Duration.ofSeconds(ExecutionManager.getConfiguration().getTimeOut()));
                 element = wwait.until(new ExpectedCondition<WebElement>() {
                     @Override
                     public WebElement apply(final WebDriver d) {
@@ -87,7 +87,7 @@ public class WaitTask extends AbstractTask {
                     // limit the timeOut to the configured timeout
                     this.timeOut = configuredTimeOut;
                 }
-                final WebDriverWait wwait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), Duration.ofSeconds(this.timeOut));
+                final WebDriverWait wwait = new WebDriverWait(ExecutionManager.getMonkeyDriver(), ExecutionManager.getConfiguration().getTimeOut());//Duration.ofSeconds(ExecutionManager.getConfiguration().getTimeOut()));
                 element = wwait.until(new ExpectedCondition<WebElement>() {
                     @Override
                     public WebElement apply(final WebDriver d) {

@@ -121,8 +121,8 @@ public class MonkeyDriverSetup {
     }
 
     public static void closeDriver() {
-        final MonkeyDriver driver = ExecutionManager.getMonkeyDriver();
-        final MonkeyConfig config = ExecutionManager.getConfiguration();
+        MonkeyDriver driver = ExecutionManager.getMonkeyDriver();
+        MonkeyConfig config = ExecutionManager.getConfiguration();
         if (driver != null) {
             LogTrackerEvent.trace(MonkeyDriverSetup.class.getName(), "Close driver");
             try {

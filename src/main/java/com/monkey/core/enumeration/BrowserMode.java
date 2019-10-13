@@ -3,7 +3,7 @@ package com.monkey.core.enumeration;
 import java.util.Random;
 
 public enum BrowserMode {
-    desktop, smartphone, tablette;
+    desktop, smartphone, tablet;
 
     private static BrowserMode defaultBrowserMode = BrowserMode.desktop;
 

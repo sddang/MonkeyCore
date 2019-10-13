@@ -35,10 +35,11 @@
         <java.version>1.8</java.version>
         <encoding>UTF-8</encoding>
 
-        <!--dependency versions -->
-        <selenium.version>4.0.0-alpha-2</selenium.version>
-        <selenium-server.version>4.0.0-alpha-2</selenium-server.version>
-        <selenium-api.version>4.0.0-alpha-2</selenium-api.version>
+        <!--dependency versions 3.141.59 4.0.0-alpha-2-->
+        <selenium.version>3.141.59</selenium.version>
+<!--        <selenium-server.version>4.0.0-alpha-2</selenium-server.version>-->
+<!--        <selenium-api.version>4.0.0-alpha-2</selenium-api.version>-->
+<!--        <selenium-remote.version>4.0.0-alpha-2</selenium-remote.version>-->
         <appium.version>7.2.0</appium.version>
         <testng.version>7.0.0</testng.version>
         <bsh.version>2.0b4</bsh.version>
@@ -75,7 +76,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-server</artifactId>
-            <version>${selenium-server.version}</version>
+            <version>${selenium.version}</version>
         </dependency>
 
         <dependency>
@@ -87,7 +88,13 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
-            <version>${selenium-api.version}</version>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>${selenium.version}</version>
         </dependency>
 
         <!-- ********************* Appium ***************************** -->
@@ -260,9 +267,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>${maven-deploy-plugin.version}</version>
-<!--                <configuration>-->
-<!--                    <skip>true</skip>-->
-<!--                </configuration>-->
             </plugin>
 
         </plugins>
